@@ -3,752 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>An Toàn Điện Nậm Mu - Công ty Cổ phần Thủy điện Nậm Mu</title>
-
-    <!-- ICON APP & LOGO -->
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="An Toàn Điện">
-
-    <!-- CSS: FontAwesome & Bootstrap 5 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Sổ Tay An Toàn Điện - Thủy Điện Nậm Mu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        :root {
-            --primary-blue: #0b2545;
-            --accent-orange: #f05a28;
-            --bg-light: #f4f7f9;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            background-color: var(--bg-light);
-            margin: 0;
-            padding: 0;
-        }
-        .header-bar {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .brand-logo img {
-            height: 42px;
-            background: white;
-            padding: 2px;
-            border-radius: 6px;
-        }
-        .brand-title h1 {
-            font-size: 18px;
-            font-weight: 800;
-            margin: 0;
-            color: #ffc107;
-            text-transform: uppercase;
-        }
-        .brand-title p {
-            font-size: 12px;
-            margin: 0;
-            opacity: 0.8;
-        }
-        .hotline-btn {
-            background-color: #dc3545;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 13px;
-        }
-        .sidebar {
-            background: white;
-            min-height: calc(100vh - 66px);
-            border-right: 1px solid #e0e0e0;
-            padding: 20px 10px;
-        }
-        .nav-link {
-            color: #495057;
-            font-weight: 600;
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            font-size: 13.5px;
-        }
-        .nav-link:hover, .nav-link.active {
-            background-color: #e8f4fe;
-            color: #0d6efd;
-        }
-        .main-content {
-            padding: 25px;
-        }
-        .support-card {
-            background: #fff3cd;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 12px;
-            margin-top: 15px;
-            border: 1px solid #ffeeba;
-        }
-        .content-section { display: none; }
-        .content-section.active { display: block; }
-
-        /* KHU VỰC TÌM KIẾM */
-        .search-box-container {
-            background: linear-gradient(135deg, #0b2545, #134074);
-            border-radius: 12px;
-            padding: 22px;
-            color: white;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-        .search-input-group {
-            position: relative;
-        }
-        .search-input-group i {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6c757d;
-        }
-        .search-input {
-            padding-left: 50px;
-            height: 52px;
-            border-radius: 26px;
-            font-size: 15px;
-            border: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .search-result-card {
-            background: white;
-            border-left: 5px solid #0d6efd;
-            padding: 16px 20px;
-            margin-bottom: 12px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-            transition: all 0.2s;
-        }
-        .badge-cite {
-            font-size: 11px;
-            background: #e9ecef;
-            color: #495057;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        .btn-back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #e8f4fe;
-            color: #0d6efd;
-            border: 1px solid #b6d4fe;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 13.5px;
-            cursor: pointer;
-            margin-bottom: 18px;
-        }
-        .quiz-option {
-            cursor: pointer;
-            padding: 10px 15px;
-            border: 1px solid #dee2e6;
-            border-radius: 6px;
-            margin-bottom: 8px;
-        }
-        .quiz-option:hover { background-color: #f1f3f5; }
+        :root { --primary-color: #0b3c5d; --secondary-color: #1d2731; --accent-color: #328cc1; --light-bg: #f4f7f6; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--light-bg); color: #333; }
+        .header-bg { background: linear-gradient(135deg, #0b3c5d 0%, #1d2731 100%); color: white; padding: 15px 0; border-bottom: 4px solid #d9b310; }
+        .logo-img { max-height: 55px; background: #fff; padding: 3px; border-radius: 6px; }
+        .sidebar { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .sidebar .nav-link { color: #495057; font-weight: 500; border-radius: 6px; margin-bottom: 5px; padding: 10px 15px; transition: all 0.2s; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { background-color: #e8f4f8; color: var(--primary-color); font-weight: 600; }
+        .sidebar .nav-link i { margin-right: 10px; color: var(--accent-color); }
+        .content-card { background: white; border-radius: 10px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .search-box { background: var(--primary-color); padding: 25px; border-radius: 12px; color: white; margin-bottom: 25px; }
+        .table-custom th { background-color: #f1f5f9; color: var(--primary-color); }
+        .step-box { border-left: 4px solid var(--accent-color); padding-left: 15px; margin-bottom: 15px; background: #f8fafc; padding: 12px 15px; border-radius: 0 8px 8px 0; }
     </style>
 </head>
 <body>
 
-    <!-- HEADER TOP -->
-    <div class="header-bar">
-        <div class="brand-logo">
-            <img src="logo.png" alt="Logo Nậm Mu" onerror="this.style.display='none'">
-            <div class="brand-title">
-                <h1>AN TOÀN ĐIỆN NẬM MU</h1>
-                <p>Công ty Cổ phần Thủy điện Nậm Mu</p>
+    <!-- HEADER -->
+    <header class="header-bg">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 d-flex align-items-center gap-3">
+                    <img src="logo.png" alt="Logo Nậm Mu" class="logo-img" onerror="this.src='https://via.placeholder.com/60x60?text=NAM+MU'">
+                    <div>
+                        <h4 class="m-0 fw-bold text-warning">AN TOÀN ĐIỆN NẬM MU</h4>
+                        <small class="text-light">Công ty Cổ phần Thủy điện Nậm Mu</small>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                    <div class="badge bg-light text-dark p-2 text-wrap">
+                        <i class="bi bi-person-badge-fill text-primary"></i> Phụ trách An toàn điện: <strong>Phạm Đức Hạnh - Phòng KT Cơ điện - Vật tư</strong>
+                    </div>
+                    <a href="tel:0913334801" class="btn btn-danger btn-sm ms-2"><i class="bi bi-telephone-fill"></i> Hotline: 0913.334.801</a>
+                </div>
             </div>
         </div>
-        <div class="d-none d-md-flex align-items-center gap-3">
-            <div class="text-end" style="font-size: 12px;">
-                <div>Phụ trách An toàn điện:</div>
-                <strong class="text-info"><i class="fa-solid fa-user-shield"></i> Phạm Đức Hạnh - Phòng KT Cơ điện - Vật tư</strong>
-            </div>
-            <a href="tel:0913334801" class="hotline-btn"><i class="fa-solid fa-phone"></i> Hotline: 0913.334.801</a>
-        </div>
-    </div>
+    </header>
 
-    <div class="container-fluid">
+    <div class="container-fluid px-4 my-4">
         <div class="row">
-            <!-- SIDEBAR LEFT -->
-            <div class="col-md-3 col-lg-2 sidebar">
-                <div class="text-uppercase text-muted fw-bold mb-3" style="font-size: 11px;">DANH MỤC TRA CỨU</div>
-                <div class="nav flex-column">
-                    <a class="nav-link active" onclick="goHome(this)"><i class="fa-solid fa-magnifying-glass text-primary"></i> Tra Cứu Nhanh</a>
-                    <a class="nav-link" onclick="showSection('quy-trinh', this)"><i class="fa-solid fa-book-open"></i> Quy Trình & Cấp Điện Áp</a>
-                    <a class="nav-link" onclick="showSection('loto', this)"><i class="fa-solid fa-key text-warning"></i> Quy Trình Khóa LOTO</a>
-                    <a class="nav-link" onclick="showSection('kiem-dinh', this)"><i class="fa-solid fa-gears" style="color:#6f42c1;"></i> Thiết Bị Kiểm Định</a>
-                    <a class="nav-link" onclick="showSection('bao-ho', this)"><i class="fa-solid fa-shield-halved text-info"></i> Dụng Cụ An Toàn & PPE</a>
-                    <a class="nav-link" onclick="showSection('thien-tai', this)"><i class="fa-solid fa-cloud-showers-heavy text-secondary"></i> An Toàn Mùa Mưa Bão</a>
-                    <a class="nav-link" onclick="showSection('so-cuu', this)"><i class="fa-solid fa-heart-pulse text-danger"></i> Sơ Cứu Điện Giật</a>
-                    <a class="nav-link" onclick="showSection('mau-bieu', this)"><i class="fa-solid fa-file-lines"></i> Mẫu Biểu & Checklist</a>
-                    <a class="nav-link" onclick="showSection('trac-nghiem', this)"><i class="fa-solid fa-user-check text-success"></i> Sát Hạch Trắc Nghiệm</a>
-                    <a class="nav-link" onclick="showSection('bao-cao', this)"><i class="fa-solid fa-triangle-exclamation text-danger"></i> Báo Cáo Mối Nguy</a>
-                    
-                    <hr class="my-2">
-                    <a class="nav-link text-dark fw-bold bg-light border" onclick="showAdminSection(this)"><i class="fa-solid fa-user-gear text-primary"></i> 🔒 Quản Trị Admin</a>
-                </div>
-
-                <div class="support-card">
-                    <strong class="text-dark"><i class="fa-solid fa-headset"></i> Hỗ trợ Kỹ thuật:</strong><br>
-                    <strong>Phạm Đức Hạnh</strong><br>
-                    <span class="text-muted">Phòng Kỹ thuật Cơ điện - Vật tư</span><br>
-                    <a href="tel:0913334801" class="text-danger fw-bold text-decoration-none"><i class="fa-solid fa-phone"></i> 0913.334.801</a>
+            <!-- SIDEBAR NAVIGATION -->
+            <div class="col-md-3 col-lg-2 mb-4">
+                <div class="sidebar">
+                    <h6 class="text-uppercase fw-bold text-muted mb-3" style="font-size: 0.75rem;">DANH MỤC TRA CỨU</h6>
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                        <button class="nav-link active text-start" id="tab-tracuu-tab" data-bs-toggle="pill" data-bs-target="#tab-tracuu" type="button"><i class="bi bi-search"></i> Tra Cứu Nhanh</button>
+                        <button class="nav-link text-start" id="tab-quytrinh-tab" data-bs-toggle="pill" data-bs-target="#tab-quytrinh" type="button"><i class="bi bi-journal-text"></i> Quy Trình & Cấp Điện Áp</button>
+                        <button class="nav-link text-start" id="tab-thietbi-tab" data-bs-toggle="pill" data-bs-target="#tab-thietbi" type="button"><i class="bi bi-gear-wide-connected"></i> Thiết Bị Kiểm Định</button>
+                        <button class="nav-link text-start" id="tab-socuu-tab" data-bs-toggle="pill" data-bs-target="#tab-socuu" type="button"><i class="bi bi-heart-pulse-fill text-danger"></i> Sơ Cứu Điện Giật</button>
+                        <button class="nav-link text-start" id="tab-tailieu-tab" data-bs-toggle="pill" data-bs-target="#tab-tailieu" type="button"><i class="bi bi-file-earmark-arrow-down-fill text-success"></i> Tài Liệu & Tải Về</button>
+                        <button class="nav-link text-start" id="tab-sathach-tab" data-bs-toggle="pill" data-bs-target="#tab-sathach" type="button"><i class="bi bi-card-checklist"></i> Sát Hạch Trắc Nghiệm</button>
+                        <button class="nav-link text-start" id="tab-admin-tab" data-bs-toggle="pill" data-bs-target="#tab-admin" type="button"><i class="bi bi-shield-lock-fill text-warning"></i> Quản Trị (Admin)</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- MAIN CONTENT -->
-            <div class="col-md-9 col-lg-10 main-content">
-                
-                <!-- 1. TRANG CHỦ & TÌM KIẾM TRỰC TUYẾN -->
-                <div id="trang-chu" class="content-section active">
-                    <div class="search-box-container">
-                        <h5 class="fw-bold mb-2"><i class="fa-solid fa-magnifying-glass me-2"></i> Tra Cứu Quy Định & Thiết Bị Kiểm Định</h5>
-                        <p class="small opacity-75 mb-3">Nhập từ khóa hoặc câu hỏi (Ví dụ: <i>cầu trục, bình tích năng, máy nén khí, LOTO, găng tay, 6,3kV, 0,4kV, sơ cứu...</i>)</p>
-                        <div class="search-input-group">
-                            <i class="fa-solid fa-search fa-lg"></i>
-                            <input type="text" id="searchInput" class="form-control search-input" placeholder="Gõ câu hỏi hoặc nội dung tra cứu tại đây..." onkeyup="handleSearch()">
+            <!-- MAIN CONTENT AREA -->
+            <div class="col-md-9 col-lg-10">
+                <div class="tab-content" id="v-pills-tabContent">
+                    
+                    <!-- 1. TRA CỨU NHANH -->
+                    <div class="tab-pane fade show active" id="tab-tracuu" role="tabpanel">
+                        <div class="search-box">
+                            <h4 class="fw-bold"><i class="bi bi-search"></i> Tra Cứu Quy Định & Thiết Bị Kiểm Định</h4>
+                            <p class="small opacity-75 mb-3">Nhập từ khóa (Ví dụ: cầu trục, bình tích năng, máy nén khí, 110kV, 6,3kV, sơ cứu...)</p>
+                            <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Gõ câu hỏi hoặc nội dung tra cứu tại đây..." onkeyup="searchFunction()">
                         </div>
-                    </div>
 
-                    <div id="searchResults" style="display: none;" class="mb-4">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h6 class="fw-bold text-primary mb-0"><i class="fa-solid fa-list-check me-2"></i> Kết Quả Tra Cứu Quy Định:</h6>
-                            <span id="resultCount" class="badge bg-primary"></span>
-                        </div>
-                        <div id="searchResultsList"></div>
-                    </div>
-
-                    <div id="homeDefaultContent">
-                        <div class="card shadow-sm p-4 mb-4">
-                            <h4 class="text-primary font-weight-bold"><i class="fa-solid fa-house"></i> Sổ Tay Tra Cứu An Toàn Điện - Thủy Điện Nậm Mu</h4>
-                            <p class="text-muted">Hệ thống hỗ trợ CBCNV tra cứu nhanh quy chuẩn kỹ thuật an toàn điện (QCVN 25:2025/BCT), danh mục thiết bị kiểm định nghiêm ngặt, quy trình LOTO, sát hạch an toàn điện và báo cáo mối nguy.</p>
+                        <div class="content-card">
+                            <h5 class="fw-bold text-primary mb-3"><i class="bi bi-house-door-fill"></i> Sổ Tay Tra Cứu An Toàn Điện - Thủy Điện Nậm Mu</h5>
+                            <p>Hệ thống hỗ trợ CBCNV tra cứu nhanh quy chuẩn kỹ thuật an toàn điện, danh mục thiết bị kiểm định nghiêm ngặt, sơ cứu điện giật và thực hiện sát hạch trắc nghiệm hàng năm.</p>
                             
-                            <div class="row mt-3">
-                                <div class="col-md-3 mb-3">
-                                    <div class="p-3 border rounded bg-light text-center" onclick="clickSection('quy-trinh')" style="cursor:pointer;">
-                                        <i class="fa-solid fa-bolt-lightning fa-2x text-primary mb-2"></i>
-                                        <h6>Cấp Điện Áp</h6>
+                            <div class="row g-3 mt-2">
+                                <div class="col-md-3">
+                                    <div class="p-3 border rounded text-center bg-light">
+                                        <i class="bi bi-lightning-charge-fill text-warning fs-1"></i>
+                                        <h6 class="fw-bold mt-2">Cấp Điện Áp</h6>
                                         <small class="text-muted">110kV, 35kV, 6,3kV & 0,4kV</small>
                                     </div>
                                 </div>
-                                <div class="col-md-3 mb-3">
-                                    <div class="p-3 border rounded bg-light text-center" onclick="clickSection('kiem-dinh')" style="cursor:pointer;">
-                                        <i class="fa-solid fa-gears fa-2x" style="color:#6f42c1;"></i>
-                                        <h6>Thiết Bị Kiểm Định</h6>
+                                <div class="col-md-3">
+                                    <div class="p-3 border rounded text-center bg-light">
+                                        <i class="bi bi-tools text-primary fs-1"></i>
+                                        <h6 class="fw-bold mt-2">Thiết Bị Kiểm Định</h6>
                                         <small class="text-muted">Cầu trục, Bình áp lực, MBA</small>
                                     </div>
                                 </div>
-                                <div class="col-md-3 mb-3">
-                                    <div class="p-3 border rounded bg-light text-center" onclick="clickSection('trac-nghiem')" style="cursor:pointer;">
-                                        <i class="fa-solid fa-user-check fa-2x text-success mb-2"></i>
-                                        <h6>Thi Sát Hạch</h6>
-                                        <small class="text-muted">Bài thi trắc nghiệm 15 câu</small>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <div class="p-3 border rounded bg-light text-center" onclick="clickSection('so-cuu')" style="cursor:pointer;">
-                                        <i class="fa-solid fa-briefcase-medical fa-2x text-danger mb-2"></i>
-                                        <h6>Sơ Cứu Cấp Cứu</h6>
+                                <div class="col-md-3">
+                                    <div class="p-3 border rounded text-center bg-light">
+                                        <i class="bi bi-heart-pulse text-danger fs-1"></i>
+                                        <h6 class="fw-bold mt-2">Sơ Cứu Cấp Cứu</h6>
                                         <small class="text-muted">Kỹ thuật CPR chuẩn EVN</small>
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="p-3 border rounded text-center bg-light">
+                                        <i class="bi bi-journal-arrow-down text-success fs-1"></i>
+                                        <h6 class="fw-bold mt-2">Tải Tài Liệu</h6>
+                                        <small class="text-muted">Quy trình VHHC các Nhà máy</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 2. QUY TRÌNH & TIÊU CHUẨN CÁC CẤP ĐIỆN ÁP -->
-                <div id="quy-trinh" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    <div class="card shadow-sm p-4 mb-4">
-                        <h4 class="text-primary"><i class="fa-solid fa-book-open"></i> Quy Chuẩn An Toàn Các Cấp Điện Áp (QCVN 25:2025/BCT & EVN)</h4>
-                        <table class="table table-bordered mt-3">
-                            <thead class="table-secondary">
-                                <tr>
-                                    <th>Cấp điện áp</th>
-                                    <th>Loại lưới điện</th>
-                                    <th>Khoảng cách tối thiểu không có rào chắn</th>
-                                    <th>Khoảng cách khi có rào chắn tạm thời</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td><strong>0,4 kV (380V/220V)</strong></td><td>Hạ áp</td><td>0,35 m</td><td>Chạm vào vỏ cách điện</td></tr>
-                                <tr><td><strong>6,3 kV</strong></td><td>Trung thế</td><td>0,70 m</td><td>0,35 m</td></tr>
-                                <tr><td><strong>35 kV</strong></td><td>Trung thế</td><td>1,00 m</td><td>0,60 m</td></tr>
-                                <tr><td><strong>110 kV</strong></td><td>Cao áp</td><td>1,50 m</td><td>1,00 m</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- 3. QUY TRÌNH KHÓA LOTO -->
-                <div id="loto" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    <div class="card shadow-sm p-4 mb-4">
-                        <h4 class="text-warning text-dark"><i class="fa-solid fa-key text-warning me-2"></i> Quy Trình Khóa Cách Ly Năng Lượng (LOTO - Lockout / Tagout)</h4>
-                        <p class="text-muted">Áp dụng bắt buộc khi tiến hành bảo dưỡng, sửa chữa tổ máy phát, máy biến áp và tủ phân phối điện.</p>
-                    </div>
-                </div>
-
-                <!-- 4. THIẾT BỊ KIỂM ĐỊNH NGHIÊM NGẶT -->
-                <div id="kiem-dinh" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    <div class="card shadow-sm p-4 mb-4">
-                        <h4 style="color:#6f42c1;"><i class="fa-solid fa-gears me-2"></i> Danh Mục Thiết Bị Bắt Buộc Kiểm Định Nghiêm Ngặt</h4>
-                        <p class="text-muted small">Căn cứ Nghị định 44/2016/NĐ-CP và Quy chuẩn An toàn Kỹ thuật Quốc gia áp dụng cho Nhà máy Thủy điện.</p>
-                    </div>
-                </div>
-
-                <!-- 5. DỤNG CỤ AN TOÀN & PPE -->
-                <div id="bao-ho" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    <div class="card shadow-sm p-4 mb-4">
-                        <h4 class="text-info text-dark"><i class="fa-solid fa-shield-halved text-info me-2"></i> Quy Chuẩn Dụng Cụ An Toàn & Trang Bị Bảo Hộ (PPE)</h4>
-                    </div>
-                </div>
-
-                <!-- 6. AN TOÀN MÙA MƯA BÃO -->
-                <div id="thien-tai" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    <div class="card shadow-sm p-4 mb-4">
-                        <h4 class="text-secondary"><i class="fa-solid fa-cloud-showers-heavy text-primary me-2"></i> Quy Định An Toàn Điện Mùa Mưa Bão & Dông Sét</h4>
-                    </div>
-                </div>
-
-                <!-- 7. SƠ CỨU -->
-                <div id="so-cuu" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    <div class="card shadow-sm p-4 mb-4">
-                        <h4 class="text-danger"><i class="fa-solid fa-heart-pulse"></i> Quy Trình Sơ Cứu Điện Giật Chuẩn EVN</h4>
-                    </div>
-                </div>
-
-                <!-- 8. MẪU BIỂU -->
-                <div id="mau-bieu" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    <div class="card shadow-sm p-4 mb-4">
-                        <h4><i class="fa-solid fa-file-lines"></i> Mẫu Biểu & Checklist An Toàn</h4>
-                    </div>
-                </div>
-
-                <!-- 9. TRẮC NGHIỆM SÁT HẠCH AN TOÀN ĐIỆN -->
-                <div id="trac-nghiem" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    
-                    <div class="card shadow-sm p-4 mb-4">
-                        <h4 class="text-success"><i class="fa-solid fa-user-check me-2"></i> Ôn Luyện & Sát Hạch An Toàn Điện Hàng Năm (15 Câu)</h4>
-                        <p class="text-muted small mb-3">Yêu cầu CBCNV điền đầy đủ thông tin cá nhân trước khi thực hiện bài thi sát hạch.</p>
-                        
-                        <!-- MẪU NHẬP THÔNG TIN CÁ NHÂN -->
-                        <div id="userInfoForm" class="border p-4 rounded bg-light mb-4">
-                            <h6 class="fw-bold text-primary mb-3"><i class="fa-solid fa-id-card me-2"></i> THÔNG TIN THÍ SINH DỰ THI:</h6>
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label font-weight-bold">Họ và tên CBCNV *</label>
-                                    <input type="text" id="candidateName" class="form-control" placeholder="Nhập họ và tên..." required>
+                    <!-- 2. QUY TRÌNH & CẤP ĐIỆN ÁP -->
+                    <div class="tab-pane fade" id="tab-quytrinh" role="tabpanel">
+                        <div class="content-card">
+                            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-journal-text"></i> Quy Định An Toàn Theo Cấp Điện Áp</h4>
+                            <div class="accordion" id="accordionVoltage">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#v110">
+                                            <span class="badge bg-danger me-2">110kV</span> Khoảng Cách An Toàn & Quy Định Cấp 110kV
+                                        </button>
+                                    </h2>
+                                    <div id="v110" class="accordion-collapse collapse show" data-bs-parent="#accordionVoltage">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li><strong>Khoảng cách an toàn tối thiểu không có rào chắn:</strong> 1,5 mét.</li>
+                                                <li><strong>Khoảng cách an toàn có rào chắn lưới:</strong> 0,7 mét.</li>
+                                                <li>Tất cả công việc trên trạm phân phối 110kV phải có Phiếu công tác và Đơn vị thi công làm thủ tục bàn giao mặt bằng an toàn.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label font-weight-bold">Đơn vị công tác *</label>
-                                    <select id="candidateUnit" class="form-select" required>
-                                        <option value="">-- Chọn Nhà máy / Đơn vị --</option>
-                                        <option value="Khối phòng ban">Khối phòng ban</option>
-                                        <option value="Nhà máy thủy điện Nậm Mu">Nhà máy thủy điện Nậm Mu</option>
-                                        <option value="Nhà máy thủy điện Nậm Ngần">Nhà máy thủy điện Nậm Ngần</option>
-                                        <option value="Nhà máy thủy điện Nậm An">Nhà máy thủy điện Nậm An</option>
-                                        <option value="Phân xưởng dịch vụ kỹ thuật cơ điện">Phân xưởng dịch vụ kỹ thuật cơ điện</option>
-                                    </select>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#v63">
+                                            <span class="badge bg-warning text-dark me-2">6,3kV - 35kV</span> Điện Áp Máy Phát & Đường Dây Nội Bộ
+                                        </button>
+                                    </h2>
+                                    <div id="v63" class="accordion-collapse collapse" data-bs-parent="#accordionVoltage">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li><strong>Khoảng cách an toàn tối thiểu không có rào chắn:</strong> 1,0 mét (đối với 6,3kV - 35kV).</li>
+                                                <li>Thao tác dao cách ly, máy cắt gian máy phát phải đeo găng tay cách điện, đi ủng cách điện đúng tiêu chuẩn kiểm định.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label font-weight-bold">Chức danh / Chức vụ *</label>
-                                    <input type="text" id="candidateTitle" class="form-control" placeholder="Ví dụ: Trưởng ca, Nhân viên vận hành..." required>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#v04">
+                                            <span class="badge bg-info text-dark me-2">0,4kV</span> Hệ Thống Hạ Áp & Tự Dùng Nhà Máy
+                                        </button>
+                                    </h2>
+                                    <div id="v04" class="accordion-collapse collapse" data-bs-parent="#accordionVoltage">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>Kiểm tra bút thử điện trước khi chạm vào vỏ thiết bị, tủ điện tự dùng.</li>
+                                                <li>Tủ điện hạ áp phải trang bị aptomat chống rò và nối đất vỏ thiết bị tin cậy.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary w-100 fw-bold py-2 mt-2" onclick="confirmUserInfo()">
-                                <i class="fa-solid fa-pen-to-square me-2"></i> XÁC NHẬN THÔNG TIN & BẮT ĐẦU LÀM BÀI
-                            </button>
                         </div>
+                    </div>
 
-                        <!-- KHU VỰC BÀI THI -->
-                        <div id="quiz-box" style="display: none;">
-                            <div class="alert alert-info py-2 d-flex justify-content-between align-items-center mb-3">
-                                <div>Thí sinh: <strong id="displayCandidateName" class="text-primary"></strong> (<span id="displayCandidateUnit"></span> - <span id="displayCandidateTitle"></span>)</div>
-                                <span class="badge bg-success">Đang làm bài</span>
-                            </div>
-                            <hr>
+                    <!-- 3. THIẾT BỊ BẮT BUỘC KIỂM ĐỊNH NGHIÊM NGẶT -->
+                    <div class="tab-pane fade" id="tab-thietbi" role="tabpanel">
+                        <div class="content-card">
+                            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-gear-wide-connected"></i> Danh Mục Thiết Bị Bắt Buộc Kiểm Định Nghiêm Ngặt</h4>
+                            <p class="text-muted small">Căn cứ Nghị định 44/2016/NĐ-CP và Quy chuẩn An toàn Kỹ thuật Quốc gia áp dụng cho Nhà máy Thủy điện.</p>
                             
-                            <form id="quiz-form">
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 1: Theo QCVN 25:2025/BCT, khoảng cách an toàn tối thiểu không có rào chắn với cấp điện áp 110kV là bao nhiêu?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q1" id="q1a" value="A"><label class="form-check-label w-100" for="q1a">A. 1.00 m</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q1" id="q1b" value="B"><label class="form-check-label w-100" for="q1b">B. 1.50 m</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q1" id="q1c" value="C"><label class="form-check-label w-100" for="q1c">C. 2.00 m</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 2: Khoảng cách an toàn tối thiểu không có rào chắn đối với cấp điện áp trung thế 6,3kV là bao nhiêu?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q2" id="q2a" value="A"><label class="form-check-label w-100" for="q2a">A. 0,35 m</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q2" id="q2b" value="B"><label class="form-check-label w-100" for="q2b">B. 0,70 m</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q2" id="q2c" value="C"><label class="form-check-label w-100" for="q2c">C. 1,00 m</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 3: Chu kỳ kiểm định định kỳ đối với Bình tích năng dầu điều tốc (MHY) và Bình chứa khí nén là bao lâu?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q3" id="q3a" value="A"><label class="form-check-label w-100" for="q3a">A. 06 tháng / lần</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q3" id="q3b" value="B"><label class="form-check-label w-100" for="q3b">B. 02 - 03 năm / lần</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q3" id="q3c" value="C"><label class="form-check-label w-100" for="q3c">C. 05 năm / lần</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 4: Tần số ép tim ngoài lồng ngực chuẩn khi sơ cứu CPR là bao nhiêu lần/phút?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q4" id="q4a" value="A"><label class="form-check-label w-100" for="q4a">A. 60 - 80 lần/phút</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q4" id="q4b" value="B"><label class="form-check-label w-100" for="q4b">B. 100 - 120 lần/phút</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q4" id="q4c" value="C"><label class="form-check-label w-100" for="q4c">C. 140 - 160 lần/phút</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 5: Trình tự các bước biện pháp kỹ thuật chuẩn bị vị trí làm việc an toàn là gì?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q5" id="q5a" value="A"><label class="form-check-label w-100" for="q5a">A. Cắt điện -> Thử điện không còn điện -> Nối đất di động & ngắn mạch -> Đặt rào chắn, treo biển báo.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q5" id="q5b" value="B"><label class="form-check-label w-100" for="q5b">B. Thử điện -> Cắt điện -> Đặt tiếp địa -> Treo biển báo.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q5" id="q5c" value="C"><label class="form-check-label w-100" for="q5c">C. Cắt điện -> Đặt tiếp địa -> Thử điện -> Rào chắn.</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 6: Thao tác đặt tiếp địa di động thực hiện theo thứ tự nào?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q6" id="q6a" value="A"><label class="form-check-label w-100" for="q6a">A. Nối đầu dây với đất trước, sau đó mới kẹp đầu dây vào phần dẫn điện.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q6" id="q6b" value="B"><label class="form-check-label w-100" for="q6b">B. Nối vào dây dẫn trước, nối đất sau.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q6" id="q6c" value="C"><label class="form-check-label w-100" for="q6c">C. Nối đầu nào trước cũng được.</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 7: Thời hạn kiểm định định kỳ đối với găng tay cách điện, ủng cách điện là bao lâu?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q7" id="q7a" value="A"><label class="form-check-label w-100" for="q7a">A. 03 tháng / lần</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q7" id="q7b" value="B"><label class="form-check-label w-100" for="q7b">B. 06 tháng / lần</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q7" id="q7c" value="C"><label class="form-check-label w-100" for="q7c">C. 12 tháng / lần</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 8: Thiết bị nâng hạ (cầu trục gian máy, pa-lông) bắt buộc kiểm định khi nào?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q8" id="q8a" value="A"><label class="form-check-label w-100" for="q8a">A. Kiểm định lần đầu trước khi đưa vào dùng, kiểm định định kỳ (1-3 năm) và kiểm định bất thường sau sửa chữa lớn.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q8" id="q8b" value="B"><label class="form-check-label w-100" for="q8b">B. Chỉ kiểm định 1 lần duy nhất khi mua mới.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q8" id="q8c" value="C"><label class="form-check-label w-100" for="q8c">C. Không bắt buộc kiểm định.</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 9: Khi phát hiện dây điện cao áp bị đứt rơi xuống đất, khoảng cách an toàn tối thiểu tránh điện áp bước là bao nhiêu?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q9" id="q9a" value="A"><label class="form-check-label w-100" for="q9a">A. 4 mét</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q9" id="q9b" value="B"><label class="form-check-label w-100" for="q9b">B. 8 mét</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q9" id="q9c" value="C"><label class="form-check-label w-100" for="q9c">C. 10 mét</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 10: Quy trình LOTO (Lockout / Tagout) bắt buộc thực hiện khi nào?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q10" id="q10a" value="A"><label class="form-check-label w-100" for="q10a">A. Khi sửa chữa, bảo dưỡng thiết bị điện nhằm khóa và treo biển cảnh báo nguồn năng lượng.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q10" id="q10b" value="B"><label class="form-check-label w-100" for="q10b">B. Khi vận hành máy móc bình thường.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q10" id="q10c" value="C"><label class="form-check-label w-100" for="q10c">C. Chỉ khi làm việc với đường dây cao áp.</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 11: Biển báo "CẤM ĐÓNG ĐIỆN! CÓ NGUỜI ĐANG LÀM VIỆC" treo ở vị trí nào?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q11" id="q11a" value="A"><label class="form-check-label w-100" for="q11a">A. Tay cầm cầu dao, aptomat, khóa điều khiển đã cắt điện cấp cho nơi làm việc.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q11" id="q11b" value="B"><label class="form-check-label w-100" for="q11b">B. Treo tại rào chắn ngoài sân trạm.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q11" id="q11c" value="C"><label class="form-check-label w-100" for="q11c">C. Treo tại cửa phòng làm việc.</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 12: Khi làm việc trên cao từ bao nhiêu mét trở lên bắt buộc phải mang dây an toàn?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q12" id="q12a" value="A"><label class="form-check-label w-100" for="q12a">A. Từ 1.5 mét trở lên</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q12" id="q12b" value="B"><label class="form-check-label w-100" for="q12b">B. Từ 2.0 mét trở lên</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q12" id="q12c" value="C"><label class="form-check-label w-100" for="q12c">C. Từ 3.0 mét trở lên</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 13: Vì sao phải kiểm tra găng tay cách điện bằng cách cuộn khí trước mỗi lần sử dụng?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q13" id="q13a" value="A"><label class="form-check-label w-100" for="q13a">A. Để phát hiện xem có vết kim đâm/lỗ thủng nhỏ có thể gây phóng điện giật tử vong.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q13" id="q13b" value="B"><label class="form-check-label w-100" for="q13b">B. Để găng tay giãn rộng ra dễ đeo hơn.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q13" id="q13c" value="C"><label class="form-check-label w-100" for="q13c">C. Không cần thiết kiểm tra nếu găng còn mới.</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 14: Tại sao đã ngắt Aptomat mà khi kiểm tra bút thử điện vẫn thấy báo sáng?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q14" id="q14a" value="A"><label class="form-check-label w-100" for="q14a">A. Do đấu sai Aptomat cắt dây nguội thay vì dây nóng, hoặc có điện áp cảm ứng/Aptomat hỏng tiếp điểm.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q14" id="q14b" value="B"><label class="form-check-label w-100" for="q14b">B. Do bút thử điện bị hỏng.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q14" id="q14c" value="C"><label class="form-check-label w-100" for="q14c">C. Là hiện tượng bình thường không nguy hiểm.</label></div>
-                                </div>
-                                <div class="mb-4">
-                                    <h6 class="fw-bold">Câu 15: Khi phát hiện hiện tượng bất thường hoặc mối nguy mất an toàn điện tại nhà máy, CBCNV cần làm gì?</h6>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q15" id="q15a" value="A"><label class="form-check-label w-100" for="q15a">A. Tự sửa chữa ngay không cần báo cáo.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q15" id="q15b" value="B"><label class="form-check-label w-100" for="q15b">B. Tạm dừng công việc nguy hiểm, cảnh báo xung quanh và gửi Báo cáo mối nguy / báo Trưởng ca, Phòng KT.</label></div>
-                                    <div class="form-check quiz-option"><input class="form-check-input" type="radio" name="q15" id="q15c" value="C"><label class="form-check-label w-100" for="q15c">C. Bỏ qua và làm việc tiếp.</label></div>
-                                </div>
-
-                                <button type="button" class="btn btn-success w-100 fw-bold py-3 mt-3" onclick="submitQuiz()">
-                                    <i class="fa-solid fa-paper-plane me-2"></i> NỘP BÀI THI & GỬI BÁO CÁO KẾT QUẢ
-                                </button>
-                            </form>
-                        </div>
-
-                        <div id="quiz-result" class="mt-4" style="display: none;"></div>
-                    </div>
-                </div>
-
-                <!-- 10. BÁO CÁO MỐI NGUY -->
-                <div id="bao-cao" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    <div class="card shadow-sm p-4">
-                        <h4 class="text-warning text-dark"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Báo Cáo Mối Nguy & Suýt Nữa Thì Sự Cố (Near-Miss)</h4>
-                        <p class="text-muted small">Gửi phản ánh trực tiếp về Phòng Kỹ thuật Cơ điện - Vật tư (Phạm Đức Hạnh - 0913.334.801)</p>
-                        
-                        <form onsubmit="event.preventDefault(); alert('Báo cáo mối nguy đã được gửi trực tiếp tới Ban ATVSLĐ & Phòng KT.');">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label font-weight-bold">Họ và tên người phát hiện *</label>
-                                    <input type="text" class="form-control" placeholder="Nhập họ và tên..." required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label font-weight-bold">Đơn vị công tác *</label>
-                                    <select class="form-select" required>
-                                        <option value="">-- Chọn Nhà máy / Đơn vị --</option>
-                                        <option value="Khối phòng ban">Khối phòng ban</option>
-                                        <option value="Nhà máy thủy điện Nậm Mu">Nhà máy thủy điện Nậm Mu</option>
-                                        <option value="Nhà máy thủy điện Nậm Ngần">Nhà máy thủy điện Nậm Ngần</option>
-                                        <option value="Nhà máy thủy điện Nậm An">Nhà máy thủy điện Nậm An</option>
-                                        <option value="Phân xưởng dịch vụ kỹ thuật cơ điện">Phân xưởng dịch vụ kỹ thuật cơ điện</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label font-weight-bold">Vị trí xảy ra/phát hiện mối nguy *</label>
-                                <input type="text" class="form-control" placeholder="Ví dụ: Gian máy, Trạm phân phối 110kV..." required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label font-weight-bold">Mô tả hiện trạng nguy hiểm *</label>
-                                <textarea class="form-control" rows="3" placeholder="Mô tả hiện tượng: Hở dây tiếp địa, rò rỉ dầu máy biến áp, hỏng khóa liên động..."></textarea>
-                            </div>
-                            <div class="mb-3 text-center border p-4 bg-light rounded">
-                                <i class="fa-solid fa-camera fa-2x text-muted mb-2"></i>
-                                <h6>Đính kèm ảnh chụp hiện trường</h6>
-                                <input type="file" class="form-control mt-2" accept="image/*">
-                            </div>
-                            <button type="submit" class="btn btn-warning w-100 fw-bold"><i class="fa-solid fa-paper-plane"></i> GỬI BÁO CÁO NGAY</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- 11. TRANG QUẢN TRỊ ADMIN (PHẠM ĐỨC HẠNH) -->
-                <div id="admin-section" class="content-section">
-                    <button class="btn-back-home" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại Tra Cứu Nhanh</button>
-                    
-                    <div id="adminLoginBox" class="card shadow-sm p-4 border-primary" style="max-width: 500px; margin: 0 auto;">
-                        <h5 class="text-primary fw-bold text-center mb-3"><i class="fa-solid fa-lock me-2"></i> ĐĂNG NHẬP TRANG QUẢN TRỊ ADMIN</h5>
-                        <p class="text-muted small text-center">Dành riêng cho Cán bộ Phụ trách An toàn: <strong>Phạm Đức Hạnh</strong></p>
-                        
-                        <div class="mb-3">
-                            <label class="form-label font-weight-bold">Mật khẩu Admin *</label>
-                            <input type="password" id="adminPasswordInput" class="form-control" placeholder="Nhập mật khẩu quản trị..." required>
-                        </div>
-                        <button class="btn btn-primary w-100 fw-bold" onclick="checkAdminPassword()">ĐĂNG NHẬP QUẢN TRỊ</button>
-                    </div>
-
-                    <div id="adminDashboard" style="display: none;">
-                        <div class="card shadow-sm p-4 mb-4">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="text-primary mb-0"><i class="fa-solid fa-chart-line me-2"></i> DANH SÁCH BÀI THI SÁT HẠCH CỦA CBCNV</h4>
-                                <div>
-                                    <button class="btn btn-sm btn-outline-danger me-2" onclick="clearAllData()"><i class="fa-solid fa-trash me-1"></i> Xóa lịch sử thi</button>
-                                    <button class="btn btn-sm btn-success" onclick="window.print()"><i class="fa-solid fa-print me-1"></i> In / Xuất báo cáo</button>
-                                </div>
-                            </div>
-                            <p class="text-muted small">Cập nhật danh sách CBCNV các nhà máy đã hoàn thành bài thi sát hạch an toàn điện.</p>
-                            
-                            <div class="table-responsive mt-2">
-                                <table class="table table-striped table-bordered align-middle" id="adminTable">
-                                    <thead class="table-dark">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-custom align-middle">
+                                    <thead>
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Thời gian nộp</th>
-                                            <th>Họ và tên</th>
-                                            <th>Đơn vị công tác</th>
-                                            <th>Chức danh</th>
-                                            <th>Kết quả (Điểm)</th>
-                                            <th>Tỷ lệ %</th>
-                                            <th>Xếp loại</th>
+                                            <th style="width: 50px;">STT</th>
+                                            <th>Tên Thiết Bị / Hệ Thống</th>
+                                            <th>Chu Kỳ Kiểm Định</th>
+                                            <th>Yêu Cầu An Toàn Kỹ Thuật</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="adminTableBody">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td><strong>Cầu trục, Pa năng gian máy</strong> (Nâng hạ Roto, Tua bin)</td>
+                                            <td><span class="badge bg-primary">01 năm / lần</span></td>
+                                            <td>Thử tải động 110%, tải tĩnh 125%. Kiểm tra phanh hãm, cáp tải, công tắc hành trình.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td><strong>Bình chịu áp lực & Máy nén khí</strong> (Hệ thống dầu áp lực OPU, khí nén)</td>
+                                            <td><span class="badge bg-primary">02 năm / lần</span></td>
+                                            <td>Kiểm định van an toàn, đồng hồ áp suất, thử áp lực thủy tĩnh định kỳ.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td><strong>Bình tích năng Dầu - Khí (OPU)</strong></td>
+                                            <td><span class="badge bg-primary">03 năm / lần</span></td>
+                                            <td>Kiểm tra độ dày màng khí, siêu âm đường hàn và thử kín van xả khẩn cấp.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">4</td>
+                                            <td><strong>Thang máy & Cần trục nâng hạ van xả lũ</strong></td>
+                                            <td><span class="badge bg-primary">01 năm / lần</span></td>
+                                            <td>Kiểm tra hệ thống hãm bảo hiểm, bộ khống chế vượt tốc, cáp nâng và công tắc giới hạn.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">5</td>
+                                            <td><strong>Dụng cụ bảo vệ cá nhân (PPE):</strong> Găng, ủng cách điện, bút thử điện 110kV</td>
+                                            <td><span class="badge bg-danger">06 tháng / lần</span></td>
+                                            <td>Thử nghiệm dòng rò cách điện tại đơn vị có thẩm quyền, dán tem kiểm định đạt yêu cầu mới sử dụng.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">6</td>
+                                            <td><strong>Hệ thống Nối đất & Sét van 110kV</strong></td>
+                                            <td><span class="badge bg-warning text-dark">01 năm / lần (Trước mùa mưa)</span></td>
+                                            <td>Đo điện trở nối đất trạm ($R_{nđ} \le 0,5 \ \Omega$), kiểm tra số lần đếm sét van.</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                    <!-- 4. SƠ CỨU ĐIỆN GIẶT -->
+                    <div class="tab-pane fade" id="tab-socuu" role="tabpanel">
+                        <div class="content-card">
+                            <h4 class="fw-bold text-danger mb-3"><i class="bi bi-heart-pulse-fill"></i> Hướng Dẫn Sơ Cứu Nạn Nhân Bị Điện Giật (Chuẩn EVN)</h4>
+                            
+                            <div class="step-box border-danger">
+                                <h5 class="fw-bold text-danger">BƯỚC 1: TÁCH NẠN NHÂN KHỎI NGUỒN ĐIỆN (CỰC KỲ NGUY HIỂM)</h5>
+                                <ul>
+                                    <li><strong>Cắt nguồn điện ngay lập tức:</strong> Ngắt Aptomat, cầu dao hoặc gạt dao cách ly gần nhất.</li>
+                                    <li><strong>Nếu không ngắt được điện:</strong> Dùng sào cách điện, gậy gỗ khô, hoặc vật không dẫn điện để gạt dây điện ra khỏi người nạn nhân.</li>
+                                    <li><em>Lưu ý:</em> Người cứu tuyệt đối không chạm trực tiếp vào nạn nhân bằng tay trần khi chưa cắt điện.</li>
+                                </ul>
+                            </div>
 
+                            <div class="step-box border-warning">
+                                <h5 class="fw-bold text-warning text-dark">BƯỚC 2: CẤP CỨU TẠI CHỖ (KỸ THUẬT CPR)</h5>
+                                <p>Đặt nạn nhân nằm ngửa trên mặt phẳng cứng, thoáng khí. Kiểm tra thở và mạch đập:</p>
+                                <ul>
+                                    <li><strong>Nếu nạn nhân bất tỉnh, ngừng thở:</strong> Tiến hành ép tim ngoài lồng ngực kết hợp thổi nạt ngay lập tức.</li>
+                                    <li><strong>Tần số ép tim:</strong> 100 - 120 lần/phút. Thao tác <strong>30 lần ép tim</strong> kết hợp <strong>2 lần thổi nạt</strong>.</li>
+                                    <li>Ép sâu khoảng 5 - 6 cm ngay chính giữa nửa dưới xương ức. Kiên trì thực hiện cho đến khi nạn nhân thở lại hoặc y tế đến.</li>
+                                </ul>
+                            </div>
+
+                            <div class="step-box border-info">
+                                <h5 class="fw-bold text-info">BƯỚC 3: BẢO VỆ VẾT BỎNG & CHUYỂN VIỆN</h5>
+                                <ul>
+                                    <li>Mở rộng cổ áo, thắt lưng. Giữ ấm cơ thể nạn nhân.</li>
+                                    <li>Dùng gạc sạch che vết bỏng do điện giật (không bôi dầu, mỡ hay thuốc bôi tùy tiện).</li>
+                                    <li>Gọi cấp cứu <strong>115</strong> hoặc dùng xe công ty đưa nạn nhân đến cơ sở y tế gần nhất.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. TÀI LIỆU & TẢI VỀ (CẬP NHẬT FILE THỰC TẾ) -->
+                    <div class="tab-pane fade" id="tab-tailieu" role="tabpanel">
+                        <div class="content-card">
+                            <h4 class="fw-bold text-success mb-3"><i class="bi bi-folder-symlink-fill"></i> Thư Viện Tài Liệu & Quy Trình Vận Hành</h4>
+                            <p class="text-muted">CBCNV nhấn vào nút **"Tải về"** để tải tài liệu quy trình vận hành hồ chứa về máy tính hoặc điện thoại.</p>
+                            
+                            <div class="list-group mt-3">
+                                <div class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <div>
+                                        <h6 class="fw-bold mb-1 text-primary"><i class="bi bi-file-earmark-pdf-fill text-danger me-2"></i> 1. Quy Trình Vận Hành Hồ Chứa Thủy Điện Nậm Mu</h6>
+                                        <small class="text-muted">Định dạng: PDF | Nhà máy Thủy điện Nậm Mu</small>
+                                    </div>
+                                    <a href="docs/1.%20QT%20VHHC%20thuy%20dien%20Nam%20Mu.pdf" download class="btn btn-outline-success btn-sm"><i class="bi bi-download"></i> Tải về</a>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <div>
+                                        <h6 class="fw-bold mb-1 text-primary"><i class="bi bi-file-earmark-pdf-fill text-danger me-2"></i> 2. Quy Trình Vận Hành Hồ Chứa Thủy Điện Nậm An</h6>
+                                        <small class="text-muted">Định dạng: PDF | Nhà máy Thủy điện Nậm An</small>
+                                    </div>
+                                    <a href="docs/2.%20QT%20VHHC%20thuy%20dien%20Nam%20An.pdf" download class="btn btn-outline-success btn-sm"><i class="bi bi-download"></i> Tải về</a>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <div>
+                                        <h6 class="fw-bold mb-1 text-primary"><i class="bi bi-file-earmark-pdf-fill text-danger me-2"></i> 3. Quy Trình Vận Hành Hồ Chứa Thủy Điện Nậm Ngần</h6>
+                                        <small class="text-muted">Định dạng: PDF | Nhà máy Thủy điện Nậm Ngần</small>
+                                    </div>
+                                    <a href="docs/3.%20QT%20VHHC%20Nam%20Ngan.pdf" download class="btn btn-outline-success btn-sm"><i class="bi bi-download"></i> Tải về</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. SÁT HẠCH TRẮC NGHIỆM -->
+                    <div class="tab-pane fade" id="tab-sathach" role="tabpanel">
+                        <div class="content-card">
+                            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-card-checklist"></i> Ôn Luyện & Sát Hạch An Toàn Điện Hàng Năm (15 Câu)</h4>
+                            <form id="quizForm">
+                                <div class="row g-3 mb-4 bg-light p-3 rounded">
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-bold">Họ và tên CBCNV *</label>
+                                        <input type="text" class="form-control" required placeholder="Nhập họ và tên...">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-bold">Đơn vị công tác *</label>
+                                        <select class="form-select" required>
+                                            <option value="">-- Chọn Nhà máy / Đơn vị --</option>
+                                            <option>Khối Phòng Ban Công Ty</option>
+                                            <option>Nhà máy Thủy điện Nậm Mu</option>
+                                            <option>Nhà máy Thủy điện Nậm Ngần</option>
+                                            <option>Nhà máy Thủy điện Nậm An</option>
+                                            <option>Phân xưởng Dịch vụ Kỹ thuật Cơ điện</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-bold">Chức danh / Chức vụ *</label>
+                                        <input type="text" class="form-control" required placeholder="Ví dụ: Trưởng ca, Nhân viên vận hành">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary w-100 fw-bold py-2"><i class="bi bi-pencil-square"></i> BẮT ĐẦU LÀM BÀI SÁT HẠCH</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- 7. ADMIN MANAGEMENT -->
+                    <div class="tab-pane fade" id="tab-admin" role="tabpanel">
+                        <div class="content-card">
+                            <h4 class="fw-bold text-warning text-dark mb-3"><i class="bi bi-shield-lock-fill"></i> Đăng Nhập Quản Trị Hệ Thống</h4>
+                            <div class="col-md-6">
+                                <input type="password" id="adminPass" class="form-control mb-2" placeholder="Nhập mật khẩu quản trị...">
+                                <button class="btn btn-warning fw-bold" onclick="checkAdminPass()">Đăng nhập Admin</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPT XỬ LÝ DỮ LIỆU & BÀI THI -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        let currentCandidate = {};
-
-        function confirmUserInfo() {
-            const name = document.getElementById('candidateName').value.trim();
-            const unit = document.getElementById('candidateUnit').value;
-            const title = document.getElementById('candidateTitle').value.trim();
-
-            if (!name || !unit || !title) {
-                alert('Anh/Chị vui lòng nhập đầy đủ Họ tên, Đơn vị và Chức danh trước khi làm bài thi!');
-                return;
-            }
-
-            currentCandidate = { name, unit, title };
-            document.getElementById('displayCandidateName').innerText = name;
-            document.getElementById('displayCandidateUnit').innerText = unit;
-            document.getElementById('displayCandidateTitle').innerText = title;
-
-            document.getElementById('userInfoForm').style.display = 'none';
-            document.getElementById('quiz-box').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function submitQuiz() {
-            const answers = { 
-                q1: 'B', q2: 'B', q3: 'B', q4: 'B', q5: 'A', 
-                q6: 'A', q7: 'B', q8: 'A', q9: 'B', q10: 'A', 
-                q11: 'A', q12: 'A', q13: 'A', q14: 'A', q15: 'B' 
-            };
-            
-            let score = 0;
-            let total = 15;
-            let missing = false;
-
-            for (let i = 1; i <= total; i++) {
-                const selected = document.querySelector(`input[name="q${i}"]:checked`);
-                if (!selected) {
-                    missing = true;
-                } else {
-                    if (selected.value === answers[`q${i}`]) score++;
-                }
-            }
-
-            if (missing) {
-                alert('Anh/Chị vui lòng hoàn thành tất cả 15 câu hỏi trước khi nộp bài!');
-                return;
-            }
-
-            const percent = Math.round((score / total) * 100);
-            const status = score >= 12 ? 'ĐẠT' : 'KHÔNG ĐẠT';
-            const now = new Date();
-            const timeString = now.toLocaleDateString('vi-VN') + ' ' + now.toLocaleTimeString('vi-VN');
-
-            const examRecord = {
-                timestamp: timeString,
-                name: currentCandidate.name,
-                unit: currentCandidate.unit,
-                title: currentCandidate.title,
-                score: `${score}/${total}`,
-                percent: percent + '%',
-                status: status
-            };
-
-            let allRecords = JSON.parse(localStorage.getItem('namMuExamRecords') || '[]');
-            allRecords.push(examRecord);
-            localStorage.setItem('namMuExamRecords', JSON.stringify(allRecords));
-
-            const resultDiv = document.getElementById('quiz-result');
-            resultDiv.style.display = 'block';
-
-            if (score >= 12) {
-                resultDiv.innerHTML = `
-                    <div class="alert alert-success text-center p-4">
-                        <h4>🎉 CHÚC MỪNG ${currentCandidate.name.toUpperCase()} ĐÃ ĐẠT SÁT HẠCH!</h4>
-                        <p class="fs-5 mb-1">Kết quả: <strong>${score}/${total} câu đúng (${percent}%)</strong></p>
-                        <p class="mb-0 text-success fw-bold">KẾT QUẢ ĐÃ ĐƯỢC GỬI VỀ HỆ THỐNG BAN ATVSLĐ & PHÒNG KỸ THUẬT</p>
-                    </div>
-                `;
+        function checkAdminPass() {
+            var pass = document.getElementById('adminPass').value;
+            if(pass === 'hanh0913334801') {
+                alert('Đăng nhập thành công! Chào mừng Quản trị viên Phạm Đức Hạnh.');
             } else {
-                resultDiv.innerHTML = `
-                    <div class="alert alert-danger text-center p-4">
-                        <h4>⚠️ KẾT QUẢ CHƯA ĐẠT YÊU CẦU!</h4>
-                        <p class="fs-5 mb-1">Kết quả: <strong>${score}/${total} câu đúng (${percent}%)</strong></p>
-                        <p class="mb-0 text-danger fw-bold">Yêu cầu đạt tối thiểu 12/15 câu (80%). Anh/Chị vui lòng ôn tập và thực hiện thi lại!</p>
-                    </div>
-                `;
-            }
-            resultDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function showAdminSection(element) { showSection('admin-section', element); }
-
-        function checkAdminPassword() {
-            const pwd = document.getElementById('adminPasswordInput').value;
-            if (pwd === 'hanh0913334801' || pwd === '123456') {
-                document.getElementById('adminLoginBox').style.display = 'none';
-                document.getElementById('adminDashboard').style.display = 'block';
-                loadAdminData();
-            } else {
-                alert('Mật khẩu Admin không chính xác!');
+                alert('Mật khẩu không chính xác!');
             }
         }
-
-        function loadAdminData() {
-            const records = JSON.parse(localStorage.getItem('namMuExamRecords') || '[]');
-            const tbody = document.getElementById('adminTableBody');
-            tbody.innerHTML = '';
-
-            if (records.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-4">Chưa có bài thi nào được gửi về hệ thống.</td></tr>`;
-                return;
-            }
-
-            records.reverse().forEach((r, idx) => {
-                const badgeClass = r.status === 'ĐẠT' ? 'bg-success' : 'bg-danger';
-                tbody.innerHTML += `
-                    <tr>
-                        <td>${records.length - idx}</td>
-                        <td class="small text-muted">${r.timestamp}</td>
-                        <td class="fw-bold text-primary">${r.name}</td>
-                        <td>${r.unit}</td>
-                        <td>${r.title}</td>
-                        <td class="fw-bold">${r.score}</td>
-                        <td>${r.percent}</td>
-                        <td><span class="badge ${badgeClass}">${r.status}</span></td>
-                    </tr>
-                `;
-            });
+        function searchFunction() {
+            var input = document.getElementById('searchInput').value.toLowerCase();
         }
-
-        function clearAllData() {
-            if (confirm('Anh Hạnh có chắc chắn muốn xóa toàn bộ lịch sử danh sách bài thi này không?')) {
-                localStorage.removeItem('namMuExamRecords');
-                loadAdminData();
-            }
-        }
-
-        function showSection(sectionId, element) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(s => s.classList.remove('active'));
-            const navs = document.querySelectorAll('.nav-link');
-            navs.forEach(n => n.classList.remove('active'));
-
-            document.getElementById(sectionId).classList.add('active');
-            if (element) element.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function goHome(element) { showSection('trang-chu', element); }
-        function clickSection(sectionId) { showSection(sectionId); }
     </script>
 </body>
 </html>
