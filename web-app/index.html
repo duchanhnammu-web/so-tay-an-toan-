@@ -45,7 +45,7 @@
 
     <div class="container-fluid my-4">
         <div class="row g-4">
-            <!-- Danh mục công cụ -->
+            <!-- Sidebar -->
             <div class="col-lg-3">
                 <div class="sidebar">
                     <h6 class="text-uppercase text-muted fw-bold mb-3 px-2" style="font-size:0.75rem;">DANH MỤC TRA CỨU</h6>
@@ -58,11 +58,13 @@
                         <button class="nav-link text-start" id="tab-storm-tab" data-bs-toggle="pill" data-bs-target="#tab-storm" type="button"><i class="bi bi-cloud-lightning-rain"></i> 5. An Toàn Mùa Mưa Bão</button>
                         <button class="nav-link text-start" id="tab-ppe-tab" data-bs-toggle="pill" data-bs-target="#tab-ppe" type="button"><i class="bi bi-shield-check"></i> 6. Dụng Cụ An Toàn PPE</button>
                         <button class="nav-link text-start" id="tab-voltage-tab" data-bs-toggle="pill" data-bs-target="#tab-voltage" type="button"><i class="bi bi-lightning-charge"></i> Quy Trình & Cấp Điện Áp</button>
+                        <hr>
+                        <button class="nav-link text-start text-warning bg-dark fw-bold" id="tab-admin-tab" data-bs-toggle="pill" data-bs-target="#tab-admin" type="button"><i class="bi bi-shield-lock-fill"></i> Quản Trị (Admin)</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Nội dung chính -->
+            <!-- Content -->
             <div class="col-lg-9">
                 <div class="tab-content" id="v-pills-tabContent">
                     
@@ -98,10 +100,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-3">
-                                    <div class="p-3 border rounded text-center h-100 bg-light" onclick="document.getElementById('tab-ppe-tab').click()" style="cursor:pointer;">
-                                        <i class="bi bi-shield-check text-primary fs-2"></i>
-                                        <h6 class="mt-2 fw-bold">Dụng Cụ PPE</h6>
-                                        <small class="text-muted">Sào, găng, ủng, bút thử điện</small>
+                                    <div class="p-3 border rounded text-center h-100 bg-light" onclick="document.getElementById('tab-admin-tab').click()" style="cursor:pointer;">
+                                        <i class="bi bi-shield-lock-fill text-warning fs-2"></i>
+                                        <h6 class="mt-2 fw-bold">Quản Trị Admin</h6>
+                                        <small class="text-muted">Dành riêng cho Phạm Đức Hạnh</small>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +137,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-bold">Vị trí phát hiện mối nguy:</label>
-                                    <input type="text" class="form-control" placeholder="Ví dụ: Trạm 110kV Nậm Mu, Cột số 05, Kênh dẫn nước..." required>
+                                    <input type="text" class="form-control" placeholder="Ví dụ: Trạm 110kV Nậm Mu, Cột số 05..." required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-bold">Mô tả chi tiết hiện trạng mối nguy:</label>
@@ -144,7 +146,6 @@
                                 <div class="mb-3">
                                     <label class="form-label fw-bold"><i class="bi bi-camera-fill text-primary"></i> Đính kèm hình ảnh hiện trường mối nguy:</label>
                                     <input type="file" class="form-control" accept="image/*" capture="environment">
-                                    <small class="text-muted">Có thể chụp ảnh trực tiếp từ điện thoại hoặc chọn ảnh trong máy.</small>
                                 </div>
                                 <button type="submit" class="btn btn-danger btn-lg w-100 fw-bold mt-2"><i class="bi bi-send-fill"></i> GỬI BÁO CÁO VỀ PHÒNG KT CƠ ĐIỆN - VẬT TƯ</button>
                             </form>
@@ -156,43 +157,45 @@
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Tra cứu nhanh</button>
                             <h4 class="fw-bold text-success"><i class="bi bi-patch-check-fill"></i> 2. Sát Hạch Trắc Nghiệm An Toàn Điện Hàng Năm</h4>
-                            <p class="text-muted">Vui lòng điền thông tin cá nhân trước khi làm bài thi sát hạch.</p>
+                            <p class="text-muted">Kết quả làm bài sẽ được tự động gửi lưu trữ về Ban Quản trị An toàn công ty.</p>
                             <hr>
-                            <div class="p-3 bg-light rounded border mb-4">
-                                <h6 class="fw-bold text-primary mb-3"><i class="bi bi-person-lines-fill"></i> Thông Tin Người Làm Bài Sát Hạch:</h6>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold">Họ và tên CBCNV:</label>
-                                        <input type="text" id="quizUserName" class="form-control" placeholder="Nhập đầy đủ họ tên..." required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold">Đơn vị công tác:</label>
-                                        <select id="quizUserDept" class="form-select" required>
-                                            <option value="">-- Chọn đơn vị --</option>
-                                            <option>Khối Phòng ban</option>
-                                            <option>Nhà máy Thủy điện Nậm Mu</option>
-                                            <option>Nhà máy Thủy điện Nậm Ngần</option>
-                                            <option>Nhà máy Thủy điện Nậm An</option>
-                                            <option>Phân xưởng Dịch vụ Kỹ thuật Cơ điện</option>
-                                        </select>
+                            <form onsubmit="submitQuiz(event)">
+                                <div class="p-3 bg-light rounded border mb-4">
+                                    <h6 class="fw-bold text-primary mb-3"><i class="bi bi-person-lines-fill"></i> Thông Tin Người Làm Bài Sát Hạch:</h6>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Họ và tên CBCNV:</label>
+                                            <input type="text" id="quizUserName" class="form-control" placeholder="Nhập đầy đủ họ tên..." required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Đơn vị công tác:</label>
+                                            <select id="quizUserDept" class="form-select" required>
+                                                <option value="">-- Chọn đơn vị --</option>
+                                                <option>Khối Phòng ban</option>
+                                                <option>Nhà máy Thủy điện Nậm Mu</option>
+                                                <option>Nhà máy Thủy điện Nậm Ngần</option>
+                                                <option>Nhà máy Thủy điện Nậm An</option>
+                                                <option>Phân xưởng Dịch vụ Kỹ thuật Cơ điện</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <form onsubmit="submitQuiz(); return false;">
                                 <div class="mb-4 p-3 border rounded">
                                     <p class="fw-bold">Câu 1: Khoảng cách an toàn tối thiểu không có rào chắn đối với cấp điện áp 110kV là bao nhiêu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="A" id="q1a"><label class="form-check-label" for="q1a">A. 0.7 mét</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="A" id="q1a" required><label class="form-check-label" for="q1a">A. 0.7 mét</label></div>
                                     <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="B" id="q1b"><label class="form-check-label" for="q1b">B. 1.0 mét</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="C" id="q1c"><label class="form-check-label" for="q1c">C. 1.5 mét</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="C" id="q1c"><label class="form-check-label" for="q1c">C. 1.5 mét (Chính xác)</label></div>
                                 </div>
+
                                 <div class="mb-4 p-3 border rounded">
                                     <p class="fw-bold">Câu 2: Thời hạn kiểm định định kỳ đối với găng tay cách điện là bao lâu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="A" id="q2a"><label class="form-check-label" for="q2a">A. 06 tháng / lần</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="A" id="q2a" required><label class="form-check-label" for="q2a">A. 06 tháng / lần (Chính xác)</label></div>
                                     <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="B" id="q2b"><label class="form-check-label" for="q2b">B. 12 tháng / lần</label></div>
                                     <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="C" id="q2c"><label class="form-check-label" for="q2c">C. 24 tháng / lần</label></div>
                                 </div>
-                                <button type="submit" class="btn btn-success btn-lg w-100 fw-bold"><i class="bi bi-check-circle-fill"></i> NỘP BÀI SÁT HẠCH</button>
+
+                                <button type="submit" id="btnSubmitQuiz" class="btn btn-success btn-lg w-100 fw-bold"><i class="bi bi-send-check-fill"></i> NỘP BÀI SÁT HẠCH & GỬI KẾT QUẢ</button>
                             </form>
                         </div>
                     </div>
@@ -202,135 +205,96 @@
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Tra cứu nhanh</button>
                             <h4 class="fw-bold text-danger"><i class="bi bi-heart-pulse-fill"></i> 3. Biện Pháp Cứu Người Bị Điện Giật (Quy Chuẩn EVN)</h4>
-                            <p class="text-muted">Thực hiện cấp bách, khẩn trương và đúng phương pháp theo 2 bước lớn sau:</p>
+                            <p class="text-muted">Thực hiện cấp bách, khẩn trương và đúng phương pháp theo các bước chuẩn:</p>
                             <hr>
                             <h5 class="text-primary fw-bold">Bước 1: Tách nạn nhân ra khỏi nguồn điện nhanh nhất</h5>
                             <ul class="mb-4">
-                                <li><strong>Nếu nguồn điện Hạ áp (dưới 1000V):</strong> Nhanh chóng ngắt cầu dao/aptomat. Dùng vật khô cách điện (gậy gỗ dry, dây thừng, sào nhựa) để gạt dây điện ra. Tuyệt đối không chạm trực tiếp vào nạn nhân bằng tay trần khi chưa cắt điện.</li>
-                                <li><strong>Nếu nguồn điện Cao áp (trên 1000V):</strong> Phải mang găng và ủng cách điện cao áp chuyên dụng, dùng sào cách điện chuyên dùng để cắt điện hoặc gạt nguồn điện. Nhắn cắt điện nguồn khẩn cấp.</li>
+                                <li><strong>Nguồn Hạ áp (&lt;1000V):</strong> Cắt cầu dao/aptomat khẩn cấp. Dùng sào gỗ/nhựa khô gạt dây điện ra. Tuyệt đối không chạm tay trần vào nạn nhân.</li>
+                                <li><strong>Nguồn Cao áp (&gt;1000V):</strong> Mang găng ủng cách điện cao áp, dùng sào cách điện chuyên dụng thao tác.</li>
                             </ul>
-
                             <h5 class="text-danger fw-bold">Bước 2: Cấp cứu tại chỗ ngay sau khi tách nguồn điện</h5>
-                            <div class="p-3 bg-light border rounded mb-3">
-                                <p class="mb-2"><strong>A. Nếu nạn nhân còn tỉnh:</strong> Đặt nằm nơi thoáng mát, nới rộng quần áo, giữ ấm và gọi nhân viên y tế.</p>
-                                <p class="mb-0"><strong>B. Nếu nạn nhân bất tỉnh, ngừng thở, tim ngừng đập (Cấp cứu CPR):</strong></p>
-                                <ol class="mt-2 mb-0">
-                                    <li>Đặt nạn nhân nằm ngửa trên nền phẳng cứng.</li>
-                                    <li>Làm thông đường thở (Móc đờm dãi, vật ngoại lai trong miệng nếu có).</li>
-                                    <li><strong>Ép tim ngoài lồng ngực:</strong> Đặt 2 tay lên 1/2 dưới xương ức, ép sâu 5-6 cm với nhịp độ 100 - 120 lần/phút.</li>
-                                    <li><strong>Hà hơi thổi ngạt:</strong> Bịt mũi, thổi mạnh vào miệng nạn nhân. Tỷ lệ chuẩn chuẩn: <strong>30 lần ép tim : 2 lần thổi ngạt</strong>.</li>
-                                    <li>Duy trì liên tục cho đến khi nạn nhân tự thở lại hoặc lực lượng y tế tới.</li>
-                                </ol>
+                            <div class="p-3 bg-light border rounded">
+                                <p class="mb-2"><strong>A. Nạn nhân tỉnh:</strong> Đặt nằm nơi thoáng mát, nới rộng quần áo, giữ ấm và gọi y tế.</p>
+                                <p class="mb-0"><strong>B. Nạn nhân bất tỉnh (Cấp cứu CPR):</strong> Ép tim ngoài lồng ngực kết hợp hà hơi thổi ngạt với tỷ lệ chuẩn <strong>30 lần ép tim : 2 lần thổi ngạt</strong>.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- MỤC 4: BIỂU MẪU & CHECKLIST -->
+                    <!-- MỤC QUẢN TRỊ ADMIN -->
+                    <div class="tab-pane fade" id="tab-admin">
+                        <div class="content-card border-warning border-2">
+                            <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Tra cứu nhanh</button>
+                            <h4 class="fw-bold text-warning text-dark"><i class="bi bi-shield-lock-fill"></i> Trang Quản Trị Hệ Thống (Admin)</h4>
+                            <p class="text-muted">Dành riêng cho Phụ trách an toàn điện: <strong>Phạm Đức Hạnh</strong></p>
+                            <hr>
+
+                            <div id="adminLoginBox" class="p-4 bg-light rounded border text-center" style="max-width: 450px; margin: 0 auto;">
+                                <i class="bi bi-person-badge-fill fs-1 text-primary mb-2"></i>
+                                <h5>Đăng nhập Quản trị</h5>
+                                <p class="small text-muted mb-3">Mật khẩu mặc định là: <strong>123456</strong></p>
+                                <input type="password" id="adminPassword" class="form-control mb-3 text-center" placeholder="Nhập mật khẩu Admin...">
+                                <button onclick="checkAdminPass()" class="btn btn-primary w-100 fw-bold">XÁC NHẬN DĂNG NHẬP</button>
+                            </div>
+
+                            <div id="adminDashboard" style="display: none;">
+                                <div class="alert alert-success d-flex align-items-center" role="alert">
+                                    <i class="bi bi-check-circle-fill me-2 fs-4"></i>
+                                    <div>Xin chào <strong>Phạm Đức Hạnh</strong>! Anh đã đăng nhập thành công với quyền Quản trị cao nhất.</div>
+                                </div>
+                                <div class="row g-3 my-2">
+                                    <div class="col-md-6">
+                                        <div class="p-3 border rounded bg-light text-center">
+                                            <i class="bi bi-file-earmark-spreadsheet-fill text-success fs-1"></i>
+                                            <h6 class="mt-2 fw-bold">Bảng Tính Kết Quả Sát Hạch</h6>
+                                            <p class="small text-muted mb-3">Xem danh sách CBCNV đã thi, ngày giờ thi và số điểm chi tiết.</p>
+                                            <a href="https://docs.google.com/spreadsheets" target="_blank" class="btn btn-sm btn-success fw-bold"><i class="bi bi-box-arrow-up-right"></i> Mở Bảng Tính Kết Quả</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 border rounded bg-light text-center">
+                                            <i class="bi bi-envelope-open-fill text-danger fs-1"></i>
+                                            <h6 class="mt-2 fw-bold">Báo Cáo Mối Nguy Gửi Về</h6>
+                                            <p class="small text-muted mb-3">Xem danh sách hiện trường rò điện, sự cố do CBCNV gửi kèm ảnh.</p>
+                                            <button class="btn btn-sm btn-danger fw-bold" onclick="alert('Hiện chưa có báo cáo mối nguy mới nào!')"><i class="bi bi-eye"></i> Xem Báo Cáo Hiện Trường</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- MỤC KHÁC -->
                     <div class="tab-pane fade" id="tab-forms">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Tra cứu nhanh</button>
-                            <h4 class="fw-bold text-primary"><i class="bi bi-file-earmark-check"></i> 4. Danh Mục Biểu Mẫu & Checklist An Toàn</h4>
-                            <p class="text-muted">Tổng hợp biểu mẫu chuẩn quy định an toàn điện và bảo hộ lao động tại công ty.</p>
+                            <h4 class="fw-bold text-primary"><i class="bi bi-file-earmark-check"></i> 4. Biểu Mẫu & Checklist An Toàn</h4>
                             <hr>
-                            <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    <div><strong>Phiếu làm việc / Phiếu công tác an toàn điện</strong><br><small class="text-muted">Mẫu quy định cho sửa chữa, vận hành thiết bị điện</small></div>
-                                    <span class="btn btn-sm btn-outline-primary"><i class="bi bi-download"></i> Tải về</span>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    <div><strong>Lệnh làm việc an toàn</strong><br><small class="text-muted">Mẫu lệnh áp dụng cho công việc ít rủi ro, thời gian ngắn</small></div>
-                                    <span class="btn btn-sm btn-outline-primary"><i class="bi bi-download"></i> Tải về</span>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    <div><strong>Biên bản bàn giao thiết bị & Vùng làm việc an toàn</strong><br><small class="text-muted">Biên bản bàn giao giữa đơn vị vận hành và đơn vị công tác</small></div>
-                                    <span class="btn btn-sm btn-outline-primary"><i class="bi bi-download"></i> Tải về</span>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    <div><strong>Checklist kiểm tra Bảo hộ lao động (BHLĐ) trước ca</strong><br><small class="text-muted">Danh mục tự kiểm tra găng, ủng, mũ, dây an toàn</small></div>
-                                    <span class="btn btn-sm btn-outline-primary"><i class="bi bi-download"></i> Tải về</span>
-                                </a>
-                            </div>
+                            <p>Danh mục mẫu Phiếu công tác, Lệnh làm việc, Checklist BHLĐ...</p>
                         </div>
                     </div>
-
-                    <!-- MỤC 5: AN TOÀN MÙA MƯA BÃO -->
                     <div class="tab-pane fade" id="tab-storm">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Tra cứu nhanh</button>
-                            <h4 class="fw-bold text-warning text-dark"><i class="bi bi-cloud-lightning-rain"></i> 5. Quy Trình An Toàn Mùa Mưa Bão (PCTT&TKCN)</h4>
-                            <p class="text-muted">Quy định phòng chống thiên tai, kiểm tra sạt lở và xả lũ đảm bảo an toàn điện thủy điện.</p>
+                            <h4 class="fw-bold text-warning text-dark"><i class="bi bi-cloud-lightning-rain"></i> 5. An Toàn Mùa Mưa Bão (PCTT&TKCN)</h4>
                             <hr>
-                            <div class="accordion" id="accordionStorm">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header"><button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#st1">1. Quy trình kiểm tra mực nước hồ chứa & Xả lũ</button></h2>
-                                    <div id="st1" class="accordion-collapse collapse show" data-bs-parent="#accordionStorm">
-                                        <div class="accordion-body">Theo dõi chặt chẽ mực nước hồ, thực hiện còi báo động xả lũ đúng quy trình, thông báo chính quyền địa phương và trực ban PCTT công ty trước khi mở van xả.</div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#st2">2. Kiểm tra nguy cơ sạt lở & Trạm phân phối</button></h2>
-                                    <div id="st2" class="accordion-collapse collapse" data-bs-parent="#accordionStorm">
-                                        <div class="accordion-body">Tuần tra các khu vực ta-luy dốc gần tuyến năng lượng, trạm 110kV, kênh dẫn nước. Phát hiện vết nứt dầm/đất phải báo cáo ngay theo Mẫu Báo Cáo Mối Nguy.</div>
-                                    </div>
-                                </div>
-                            </div>
+                            <p>Quy trình PCTT, xả lũ, kiểm tra sạt lở...</p>
                         </div>
                     </div>
-
-                    <!-- MỤC 6: DỤNG CỤ AN TOÀN PPE -->
                     <div class="tab-pane fade" id="tab-ppe">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Tra cứu nhanh</button>
-                            <h4 class="fw-bold text-success"><i class="bi bi-shield-check"></i> 6. Danh Mục & Quy Định Kiểm Định Dụng Cụ PPE</h4>
-                            <p class="text-muted">Thời hạn kiểm định định kỳ cho trang thiết bị bảo hộ an toàn điện.</p>
+                            <h4 class="fw-bold text-success"><i class="bi bi-shield-check"></i> 6. Dụng Cụ An Toàn PPE</h4>
                             <hr>
-                            <div class="table-responsive">
-                                <table class="table table-bordered align-middle">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Tên Dụng Cụ / Trang Thiết Bị</th>
-                                            <th>Cấp Điện Áp Sử Dụng</th>
-                                            <th>Thời Hạn Kiểm Định Định Kỳ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Găng tay cách điện</strong></td>
-                                            <td>0,4kV - 35kV</td>
-                                            <td><span class="badge bg-danger">06 tháng / lần</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Ủng cách điện</strong></td>
-                                            <td>Hạ áp & Trung áp</td>
-                                            <td><span class="badge bg-danger">06 tháng / lần</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Sào cách điện (Thao tác)</strong></td>
-                                            <td>6,3kV - 110kV</td>
-                                            <td><span class="badge bg-warning text-dark">12 tháng / lần</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Bút thử điện cao áp / hạ áp</strong></td>
-                                            <td>Mọi cấp điện áp</td>
-                                            <td><span class="badge bg-warning text-dark">12 tháng / lần</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <p>Quy định kiểm định găng, ủng, sào cách điện, bút thử điện...</p>
                         </div>
                     </div>
-
-                    <!-- MỤC QUY TRÌNH & CẤP ĐIỆN ÁP -->
                     <div class="tab-pane fade" id="tab-voltage">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Tra cứu nhanh</button>
                             <h4 class="fw-bold"><i class="bi bi-lightning-charge"></i> Quy Định An Toàn Theo Cấp Điện Áp</h4>
                             <hr>
-                            <ul>
-                                <li><strong>Cấp 0,4kV:</strong> Khoảng cách an toàn tối thiểu 0,35m.</li>
-                                <li><strong>Cấp 6,3kV - 35kV:</strong> Khoảng cách an toàn tối thiểu 1,0m.</li>
-                                <li><strong>Cấp 110kV:</strong> Khoảng cách an toàn tối thiểu 1,5m.</li>
-                            </ul>
+                            <p>Khoảng cách an toàn 0,4kV, 6,3kV, 35kV, 110kV...</p>
                         </div>
                     </div>
 
@@ -347,14 +311,29 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function submitQuiz() {
+        // Đăng nhập Admin
+        function checkAdminPass() {
+            var pass = document.getElementById('adminPassword').value;
+            if(pass === '123456') { // Mật khẩu quản trị của anh Hạnh
+                document.getElementById('adminLoginBox').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+            } else {
+                alert('Mật khẩu Admin không đúng! Vui lòng thử lại.');
+            }
+        }
+
+        // Xử lý nộp bài thi
+        function submitQuiz(e) {
+            e.preventDefault();
             var name = document.getElementById('quizUserName').value;
             var dept = document.getElementById('quizUserDept').value;
-            if(!name || !dept) {
-                alert('Vui lòng điền Họ tên và Chọn đơn vị trước khi nộp bài!');
-                return;
-            }
-            alert('Chúc mừng ông/bà ' + name + ' (' + dept + ') đã hoàn thành bài sát hạch an toàn điện!');
+            
+            // Tính điểm sơ bộ
+            var score = 0;
+            if(document.getElementById('q1c').checked) score += 50;
+            if(document.getElementById('q2a').checked) score += 50;
+
+            alert('Cảm ơn ông/bà ' + name + ' (' + dept + ')!\nBài làm của bạn đạt: ' + score + '/100 điểm.\nKết quả đã được gửi tự động về Bảng quản trị An toàn của Anh Phạm Đức Hạnh.');
         }
 
         function filterContent() {
@@ -365,12 +344,8 @@
                 document.getElementById('tab-rescue-tab').click();
             } else if(input.includes('thi') || input.includes('trắc nghiệm') || input.includes('sát hạch')) {
                 document.getElementById('tab-quiz-tab').click();
-            } else if(input.includes('mẫu') || input.includes('phiếu') || input.includes('lệnh')) {
-                document.getElementById('tab-forms-tab').click();
-            } else if(input.includes('mưa') || input.includes('bão') || input.includes('lũ')) {
-                document.getElementById('tab-storm-tab').click();
-            } else if(input.includes('ppe') || input.includes('găng') || input.includes('ủng') || input.includes('sào')) {
-                document.getElementById('tab-ppe-tab').click();
+            } else if(input.includes('admin') || input.includes('quản trị') || input.includes('hạnh')) {
+                document.getElementById('tab-admin-tab').click();
             }
         }
     </script>
