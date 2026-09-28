@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>An Toàn Điện Nậm Mu - Sổ Tay & Tra Cứu Nhanh</title>
+    <title>An Toàn Điện Nậm Mu - Sổ Tay, Mẫu Biểu & Báo Cáo Mối Nguy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
@@ -12,7 +12,7 @@
         .header-bg { background-color: var(--primary-dark); color: white; padding: 12px 24px; }
         .logo-box { background: var(--brand-yellow); color: white; width: 42px; height: 42px; border-radius: 8px; font-size: 22px; font-weight: bold; }
         .sidebar { background: white; border-radius: 12px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .sidebar .nav-link { color: #475569; font-weight: 500; border-radius: 8px; margin-bottom: 4px; padding: 12px 16px; transition: all 0.2s; text-align: left; }
+        .sidebar .nav-link { color: #475569; font-weight: 500; border-radius: 8px; margin-bottom: 6px; padding: 12px 16px; transition: all 0.2s; text-align: left; }
         .sidebar .nav-link:hover { background-color: #f1f5f9; color: #0284c7; }
         .sidebar .nav-link.active { background-color: #e0f2fe; color: #0369a1; font-weight: 600; }
         .sidebar .nav-link i { margin-right: 12px; font-size: 1.1rem; }
@@ -21,10 +21,10 @@
         .form-card { background: white; border-radius: 12px; border: 1px solid #e2e8f0; padding: 20px; transition: all 0.2s; }
         .form-card:hover { border-color: #38bdf8; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .icon-badge { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
-        .search-box { background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 10px; padding: 8px 16px; }
+        .search-box { background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 10px; padding: 10px 16px; }
         .search-box input { border: none; background: transparent; outline: none; width: 100%; font-size: 1rem; }
         .faq-item { border-bottom: 1px solid #e2e8f0; padding: 14px 0; }
-        .faq-question { font-weight: 600; color: #0f172a; cursor: pointer; }
+        .faq-question { font-weight: 600; color: #0f172a; }
         .faq-answer { color: #475569; font-size: 0.95rem; margin-top: 6px; }
     </style>
 </head>
@@ -57,12 +57,12 @@
             <div class="col-md-3 col-lg-2 mb-4">
                 <div class="sidebar">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-trangchu" type="button"><i class="bi bi-search"></i> Tra Cứu & Hotline</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-trangchu" type="button"><i class="bi bi-search"></i> Trang chủ & Hotline</button>
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-quytrinh" type="button"><i class="bi bi-journal-text"></i> Quy trình & Khoảng cách</button>
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-socuu" type="button"><i class="bi bi-heart-pulse"></i> Sơ Cấp Cứu Điện Giật</button>
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-bieumau" type="button"><i class="bi bi-file-earmark-text"></i> Mẫu Biểu & Checklist</button>
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-sathach" type="button"><i class="bi bi-award"></i> Sát Hạch Trắc Nghiệm</button>
-                        <button class="nav-link text-danger" data-bs-toggle="pill" data-bs-target="#tab-baocao" type="button"><i class="bi bi-exclamation-triangle-fill"></i> Báo Cáo Mối Nguy</button>
+                        <button class="nav-link text-danger fw-bold" data-bs-toggle="pill" data-bs-target="#tab-baocao" type="button"><i class="bi bi-exclamation-triangle-fill"></i> Báo Cáo Mối Nguy</button>
                     </div>
 
                     <!-- SUPPORT INFO BOX -->
@@ -80,19 +80,19 @@
             <div class="col-md-9 col-lg-10">
                 <div class="tab-content" id="v-pills-tabContent">
                     
-                    <!-- TAB 1: TRA CỨU NHANH & CÂU HỎI THƯỜNG GẶP -->
+                    <!-- TAB 1: TRA CỨU NHANH & FAQ -->
                     <div class="tab-pane fade show active" id="tab-trangchu" role="tabpanel">
                         <div class="content-card">
                             <h4 class="fw-bold text-primary mb-3"><i class="bi bi-search"></i> Tra Cứu Nhanh Quy Định An Toàn Điện</h4>
                             
-                            <!-- THANH TÌM KIẾM -->
+                            <!-- SEARCH BAR -->
                             <div class="search-box d-flex align-items-center mb-4">
                                 <i class="bi bi-search text-secondary me-2 fs-5"></i>
                                 <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Nhập từ khóa tra cứu (ví dụ: 110kV, phiếu làm việc, tiếp địa, BHLĐ, sơ cứu...)...">
                             </div>
 
-                            <!-- CÁC CÂU HỎI THƯỜNG GẶP (FAQ) -->
-                            <h5 class="fw-bold text-dark mt-4 mb-3"><i class="bi bi-question-circle-fill text-warning"></i> Các Câu Hỏi Thường Gặp Về Công Tác An Toàn</h5>
+                            <!-- QUICK FAQ -->
+                            <h5 class="fw-bold text-dark mt-4 mb-3"><i class="bi bi-question-circle-fill text-warning"></i> Các Câu Hỏi Thường Gặp Khi Làm Việc</h5>
                             
                             <div id="faqContainer">
                                 <div class="faq-item search-target">
@@ -103,7 +103,7 @@
                                 <div class="faq-item search-target">
                                     <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 2. Khi nào phải lập Phiếu làm việc, khi nào chỉ cần Lệnh làm việc?</div>
                                     <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong> 
-                                        <ul>
+                                        <ul class="mb-0">
                                             <li><strong>Phiếu làm việc:</strong> Áp dụng cho các công tác thi công, sửa chữa phức tạp, có cắt điện hoặc làm việc gần phần mang điện nguy hiểm tại trạm 110kV và nhà máy.</li>
                                             <li><strong>Lệnh làm việc:</strong> Áp dụng cho các công tác đơn giản, thời gian ngắn, thao tác không có nguy cơ cao hoặc xử lý sự cố đột xuất theo quy trình.</li>
                                         </ul>
@@ -111,7 +111,7 @@
                                 </div>
 
                                 <div class="faq-item search-target">
-                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 3. Năm bước vàng đảm bảo an toàn trước khi vào thi công sửa chữa điện là gì?</div>
+                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 3. 5 bước vàng đảm bảo an toàn trước khi vào thi công sửa chữa điện là gì?</div>
                                     <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong>
                                         <ol class="m-0 ps-3">
                                             <li>Cắt điện hoàn toàn khu vực công tác.</li>
@@ -124,13 +124,8 @@
                                 </div>
 
                                 <div class="faq-item search-target">
-                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 4. Kiểm tra trang thiết bị BHLĐ và dụng cụ an toàn trước ca làm việc như thế nào?</div>
-                                    <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong> Cần thực hiện kiểm tra ngoại quan bằng mắt (không nứt, rách, biến dạng), còn hạn thử nghiệm định kỳ ghi trên tem kiểm định (găng tay cách điện, ủng cách điện, sào cách điện, bút thử điện). Tải form checklist tại mục <em>"Mẫu Biểu & Checklist"</em>.</div>
-                                </div>
-
-                                <div class="faq-item search-target">
-                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 5. Khi phát hiện nguy cơ mất an toàn hoặc sự cố "suýt xảy ra" (Near-miss) thì xử lý thế nào?</div>
-                                    <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong> Tạm dừng ngay công việc nếu thấy không an toàn, sau đó truy cập mục <strong>"Báo Cáo Mối Nguy"</strong> trên trang web này để gửi thông tin và hình ảnh về cho Anh Phạm Đức Hạnh - Phòng KT Cơ điện - Vật tư xử lý.</div>
+                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 4. Khi phát hiện nguy cơ mất an toàn hoặc sự cố "suýt xảy ra" (Near-miss) thì báo cáo ở đâu?</div>
+                                    <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong> Anh/chị bấm ngay vào mục <strong>"Báo Cáo Mối Nguy"</strong> ở menu bên trái để điền thông tin và gửi hình ảnh về cho Phòng KT Cơ điện - Vật tư xử lý kịp thời.</div>
                                 </div>
                             </div>
 
@@ -142,10 +137,10 @@
                         <div class="content-card">
                             <h4 class="fw-bold text-primary mb-3"><i class="bi bi-journal-text"></i> Quy Trình An Toàn & Khoảng Cách Cách Điện</h4>
                             <ul>
-                                <li class="mb-2"><strong>Cấp điện áp 110kV:</strong> Khoảng cách an toàn tối thiểu đến phần mang điện là <strong>1,5 mét</strong>.</li>
+                                <li class="mb-2"><strong>Cấp điện áp 110kV:</strong> Khoảng cách an toàn tối thiểu là <strong>1,5 mét</strong>.</li>
                                 <li class="mb-2"><strong>Cấp điện áp 35kV:</strong> Khoảng cách an toàn tối thiểu là <strong>1,0 mét</strong>.</li>
                                 <li class="mb-2"><strong>Cấp điện áp 6,3kV:</strong> Khoảng cách an toàn tối thiểu là <strong>0,7 mét</strong>.</li>
-                                <li><strong>Hệ thống 0,4kV:</strong> Bắt buộc kiểm tra bút thử điện và mặc đầy đủ BHLĐ trước khi thao tác tủ điện.</li>
+                                <li><strong>Hệ thống 0,4kV:</strong> Kiểm tra bút thử điện và mặc đầy đủ BHLĐ trước khi thao tác tủ điện.</li>
                             </ul>
                         </div>
                     </div>
@@ -160,7 +155,7 @@
                         </div>
                     </div>
 
-                    <!-- TAB 4: MẪU BIỂU & CHECKLIST -->
+                    <!-- TAB 4: MẪU BIỂU & CHECKLIST (ĐÃ BỔ SUNG ĐẦY ĐỦ) -->
                     <div class="tab-pane fade" id="tab-bieumau" role="tabpanel">
                         <div class="content-card">
                             <h3 class="fw-bold text-dark mb-1">Thư Viện Mẫu Biểu & Checklist An Toàn</h3>
@@ -179,7 +174,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
                                             <span class="text-muted small">Định dạng Word/PDF</span>
-                                            <a href="docs/1.%20QT%20VHHC%20thuy%20dien%20Nam%20Mu.pdf" download class="btn btn-link text-primary fw-bold text-decoration-none p-0"><i class="bi bi-download"></i> Tải mẫu</a>
+                                            <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none p-0"><i class="bi bi-download"></i> Tải mẫu</a>
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +191,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
                                             <span class="text-muted small">Định dạng Word/PDF</span>
-                                            <a href="docs/2.%20QT%20VHHC%20thuy%20dien%20Nam%20An.pdf" download class="btn btn-link text-primary fw-bold text-decoration-none p-0"><i class="bi bi-download"></i> Tải mẫu</a>
+                                            <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none p-0"><i class="bi bi-download"></i> Tải mẫu</a>
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +208,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
                                             <span class="text-muted small">Nội bộ Nậm Mu</span>
-                                            <a href="docs/3.%20QT%20VHHC%20Nam%20Ngan.pdf" download class="btn btn-link text-primary fw-bold text-decoration-none p-0"><i class="bi bi-download"></i> Tải mẫu</a>
+                                            <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none p-0"><i class="bi bi-download"></i> Tải mẫu</a>
                                         </div>
                                     </div>
                                 </div>
@@ -230,7 +225,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
                                             <span class="text-muted small">Nội bộ Nậm Mu</span>
-                                            <a href="docs/1.%20QT%20VHHC%20thuy%20dien%20Nam%20Mu.pdf" download class="btn btn-link text-primary fw-bold text-decoration-none p-0"><i class="bi bi-download"></i> Tải mẫu</a>
+                                            <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none p-0"><i class="bi bi-download"></i> Tải mẫu</a>
                                         </div>
                                     </div>
                                 </div>
@@ -247,7 +242,7 @@
                         </div>
                     </div>
 
-                    <!-- TAB 6: BÁO CÁO MỐI NGUY HIỂM -->
+                    <!-- TAB 6: BÁO CÁO MỐI NGUY HIỂM (MỚI BỔ SUNG) -->
                     <div class="tab-pane fade" id="tab-baocao" role="tabpanel">
                         <div class="content-card">
                             <h3 class="fw-bold text-danger mb-1"><i class="bi bi-exclamation-triangle-fill"></i> Báo Cáo Mối Nguy Hiểm & Suýt Nữa Xảy Ra Sự Cố (Near-Miss)</h3>
@@ -301,18 +296,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // HÀM LỌC TÌM KIẾM TỰ ĐỘNG
         function searchFunction() {
             var input = document.getElementById('searchInput').value.toLowerCase();
             var items = document.getElementsByClassName('search-target');
-            
             for (var i = 0; i < items.length; i++) {
                 var text = items[i].innerText.toLowerCase();
-                if (text.includes(input)) {
-                    items[i].style.display = "";
-                } else {
-                    items[i].style.display = "none";
-                }
+                items[i].style.display = text.includes(input) ? "" : "none";
             }
         }
 
