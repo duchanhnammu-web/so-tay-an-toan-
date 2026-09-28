@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>An Toàn Điện Nậm Mu - Sổ Tay & Báo Cáo Mối Nguy</title>
+    <title>An Toàn Điện Nậm Mu - Sổ Tay & Tra Cứu Nhanh</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
@@ -21,6 +21,11 @@
         .form-card { background: white; border-radius: 12px; border: 1px solid #e2e8f0; padding: 20px; transition: all 0.2s; }
         .form-card:hover { border-color: #38bdf8; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .icon-badge { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+        .search-box { background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 10px; padding: 8px 16px; }
+        .search-box input { border: none; background: transparent; outline: none; width: 100%; font-size: 1rem; }
+        .faq-item { border-bottom: 1px solid #e2e8f0; padding: 14px 0; }
+        .faq-question { font-weight: 600; color: #0f172a; cursor: pointer; }
+        .faq-answer { color: #475569; font-size: 0.95rem; margin-top: 6px; }
     </style>
 </head>
 <body>
@@ -52,7 +57,7 @@
             <div class="col-md-3 col-lg-2 mb-4">
                 <div class="sidebar">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-trangchu" type="button"><i class="bi bi-grid"></i> Trang chủ & Hotline</button>
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-trangchu" type="button"><i class="bi bi-search"></i> Tra Cứu & Hotline</button>
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-quytrinh" type="button"><i class="bi bi-journal-text"></i> Quy trình & Khoảng cách</button>
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-socuu" type="button"><i class="bi bi-heart-pulse"></i> Sơ Cấp Cứu Điện Giật</button>
                         <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-bieumau" type="button"><i class="bi bi-file-earmark-text"></i> Mẫu Biểu & Checklist</button>
@@ -75,32 +80,60 @@
             <div class="col-md-9 col-lg-10">
                 <div class="tab-content" id="v-pills-tabContent">
                     
-                    <!-- TAB 1: TRANG CHỦ -->
+                    <!-- TAB 1: TRA CỨU NHANH & CÂU HỎI THƯỜNG GẶP -->
                     <div class="tab-pane fade show active" id="tab-trangchu" role="tabpanel">
                         <div class="content-card">
-                            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-house-door-fill"></i> Hệ Thống Quản Lý An Toàn Điện Thủy Điện Nậm Mu</h4>
-                            <p>Chào mừng CBCNV đến với trang tra cứu quy chuẩn kỹ thuật an toàn điện, tải biểu mẫu tác nghiệp, thực hiện báo cáo mối nguy hiểm và sát hạch an toàn định kỳ.</p>
+                            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-search"></i> Tra Cứu Nhanh Quy Định An Toàn Điện</h4>
                             
-                            <div class="row g-3 mt-3">
-                                <div class="col-md-4">
-                                    <div class="p-3 border rounded bg-light">
-                                        <h6 class="fw-bold text-dark"><i class="bi bi-lightning-charge text-warning"></i> Thủy điện Nậm Mu</h6>
-                                        <small class="text-secondary">Trạm 110kV & Gian máy phát H1, H2, H3</small>
+                            <!-- THANH TÌM KIẾM -->
+                            <div class="search-box d-flex align-items-center mb-4">
+                                <i class="bi bi-search text-secondary me-2 fs-5"></i>
+                                <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Nhập từ khóa tra cứu (ví dụ: 110kV, phiếu làm việc, tiếp địa, BHLĐ, sơ cứu...)...">
+                            </div>
+
+                            <!-- CÁC CÂU HỎI THƯỜNG GẶP (FAQ) -->
+                            <h5 class="fw-bold text-dark mt-4 mb-3"><i class="bi bi-question-circle-fill text-warning"></i> Các Câu Hỏi Thường Gặp Về Công Tác An Toàn</h5>
+                            
+                            <div id="faqContainer">
+                                <div class="faq-item search-target">
+                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 1. Khoảng cách an toàn tối thiểu khi làm việc gần thiết bị mang điện 110kV là bao nhiêu?</div>
+                                    <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong> Khoảng cách an toàn tối thiểu không có rào chắn là <strong>1,5 mét</strong> theo Quy chuẩn QCVN 01:2020/BCT và Quy định EVN.</div>
+                                </div>
+
+                                <div class="faq-item search-target">
+                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 2. Khi nào phải lập Phiếu làm việc, khi nào chỉ cần Lệnh làm việc?</div>
+                                    <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong> 
+                                        <ul>
+                                            <li><strong>Phiếu làm việc:</strong> Áp dụng cho các công tác thi công, sửa chữa phức tạp, có cắt điện hoặc làm việc gần phần mang điện nguy hiểm tại trạm 110kV và nhà máy.</li>
+                                            <li><strong>Lệnh làm việc:</strong> Áp dụng cho các công tác đơn giản, thời gian ngắn, thao tác không có nguy cơ cao hoặc xử lý sự cố đột xuất theo quy trình.</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="p-3 border rounded bg-light">
-                                        <h6 class="fw-bold text-dark"><i class="bi bi-lightning-charge text-warning"></i> Thủy điện Nậm Ngần</h6>
-                                        <small class="text-secondary">Trạm 110kV & Hệ thống tự dùng</small>
+
+                                <div class="faq-item search-target">
+                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 3. Năm bước vàng đảm bảo an toàn trước khi vào thi công sửa chữa điện là gì?</div>
+                                    <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong>
+                                        <ol class="m-0 ps-3">
+                                            <li>Cắt điện hoàn toàn khu vực công tác.</li>
+                                            <li>Khóa phần điều khiển, treo biển cảnh báo ("CẤM CẮT ĐIỆN! CÓ NGUỜI ĐANG LÀM VIỆC").</li>
+                                            <li>Kiểm tra không còn điện bằng bút thử điện phù hợp.</li>
+                                            <li>Thực hiện tiếp địa di động (tiếp đất 2 đầu khu vực công tác).</li>
+                                            <li>Rào chắn cách ly khu vực có điện xung quanh.</li>
+                                        </ol>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="p-3 border rounded bg-light">
-                                        <h6 class="fw-bold text-dark"><i class="bi bi-lightning-charge text-warning"></i> Thủy điện Nậm An</h6>
-                                        <small class="text-secondary">Đường dây 35kV & Cần trục van xả lũ</small>
-                                    </div>
+
+                                <div class="faq-item search-target">
+                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 4. Kiểm tra trang thiết bị BHLĐ và dụng cụ an toàn trước ca làm việc như thế nào?</div>
+                                    <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong> Cần thực hiện kiểm tra ngoại quan bằng mắt (không nứt, rách, biến dạng), còn hạn thử nghiệm định kỳ ghi trên tem kiểm định (găng tay cách điện, ủng cách điện, sào cách điện, bút thử điện). Tải form checklist tại mục <em>"Mẫu Biểu & Checklist"</em>.</div>
+                                </div>
+
+                                <div class="faq-item search-target">
+                                    <div class="faq-question"><i class="bi bi-caret-right-fill text-primary me-1"></i> 5. Khi phát hiện nguy cơ mất an toàn hoặc sự cố "suýt xảy ra" (Near-miss) thì xử lý thế nào?</div>
+                                    <div class="faq-answer ps-3">👉 <strong>Trả lời:</strong> Tạm dừng ngay công việc nếu thấy không an toàn, sau đó truy cập mục <strong>"Báo Cáo Mối Nguy"</strong> trên trang web này để gửi thông tin và hình ảnh về cho Anh Phạm Đức Hạnh - Phòng KT Cơ điện - Vật tư xử lý.</div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
@@ -127,14 +160,13 @@
                         </div>
                     </div>
 
-                    <!-- TAB 4: MẪU BIỂU & CHECKLIST (GIỐNG HÌNH ẢNH 100%) -->
+                    <!-- TAB 4: MẪU BIỂU & CHECKLIST -->
                     <div class="tab-pane fade" id="tab-bieumau" role="tabpanel">
                         <div class="content-card">
                             <h3 class="fw-bold text-dark mb-1">Thư Viện Mẫu Biểu & Checklist An Toàn</h3>
                             <p class="text-secondary mb-4">Ban hành phục vụ công tác kiểm tra, thi công sửa chữa tại Thủy điện Nậm Mu</p>
 
                             <div class="row g-4">
-                                <!-- Card 1 -->
                                 <div class="col-md-6">
                                     <div class="form-card h-100 d-flex flex-column justify-content-between">
                                         <div>
@@ -152,7 +184,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Card 2 -->
                                 <div class="col-md-6">
                                     <div class="form-card h-100 d-flex flex-column justify-content-between">
                                         <div>
@@ -170,7 +201,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Card 3 -->
                                 <div class="col-md-6">
                                     <div class="form-card h-100 d-flex flex-column justify-content-between">
                                         <div>
@@ -188,7 +218,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Card 4 -->
                                 <div class="col-md-6">
                                     <div class="form-card h-100 d-flex flex-column justify-content-between">
                                         <div>
@@ -218,7 +247,7 @@
                         </div>
                     </div>
 
-                    <!-- TAB 6: BÁO CÁO MỐI NGUY HIỂM & RỦI RO (MỚI BỔ SUNG) -->
+                    <!-- TAB 6: BÁO CÁO MỐI NGUY HIỂM -->
                     <div class="tab-pane fade" id="tab-baocao" role="tabpanel">
                         <div class="content-card">
                             <h3 class="fw-bold text-danger mb-1"><i class="bi bi-exclamation-triangle-fill"></i> Báo Cáo Mối Nguy Hiểm & Suýt Nữa Xảy Ra Sự Cố (Near-Miss)</h3>
@@ -272,6 +301,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // HÀM LỌC TÌM KIẾM TỰ ĐỘNG
+        function searchFunction() {
+            var input = document.getElementById('searchInput').value.toLowerCase();
+            var items = document.getElementsByClassName('search-target');
+            
+            for (var i = 0; i < items.length; i++) {
+                var text = items[i].innerText.toLowerCase();
+                if (text.includes(input)) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+
         function submitHazardReport(e) {
             e.preventDefault();
             alert('Cảm ơn anh/chị đã gửi Báo cáo mối nguy! Thông tin đã được chuyển tới Anh Phạm Đức Hạnh - Phòng KT Cơ điện - Vật tư để xem xét xử lý.');
