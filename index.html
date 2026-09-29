@@ -721,3 +721,311 @@
     </script>
 </body>
 </html>
+<!-- MỤC 12: VĂN BẢN & HỒ SƠ PHÁP LÝ -->
+<div id="muc-12" class="container-fluid py-3">
+  
+  <!-- TIÊU ĐỀ MỤC -->
+  <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+    <div>
+      <h3 class="fw-bold text-primary mb-1">
+        <i class="bi bi-file-earmark-text-fill me-2"></i>12. Văn Bản & Hồ Sơ Pháp Lý
+      </h3>
+      <p class="text-muted mb-0">Quản lý, tra cứu quy trình an toàn, hồ sơ pháp lý và giấy chứng nhận kiểm định thiết bị</p>
+    </div>
+    <div>
+      <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" 
+         target="_blank" 
+         class="btn btn-outline-danger btn-sm shadow-sm">
+        <i class="bi bi-file-earmark-pdf-fill me-1"></i> Xem File PDF Gốc (Google Drive)
+      </a>
+    </div>
+  </div>
+
+  <!-- BẢNG THỐNG KÊ MỚI: GIẤY CHỨNG NHẬN KIỂM ĐỊNH THIẾT BỊ -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
+      <h5 class="mb-0 fw-bold">
+        <i class="bi bi-patch-check-fill me-2"></i>DANH SÁCH GIẤY CHỨNG NHẬN KIỂM ĐỊNH THIẾT BỊ NGHIÊM NGẶT
+      </h5>
+      <span class="badge bg-light text-primary px-3 py-2 fs-6 rounded-pill">
+        Tổng số: 15 thiết bị
+      </span>
+    </div>
+    
+    <div class="card-body bg-light border-bottom">
+      <!-- THANH TÌM KIẾM & LỌC NHANH -->
+      <div class="row g-2">
+        <div class="col-md-8">
+          <div class="input-group">
+            <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+            <input type="text" id="searchKiemDinh" class="form-control" onkeyup="filterKiemDinhTable()" placeholder="Nhập tên thiết bị, số GCN, số chế tạo để tìm kiếm...">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <select id="filterFactory" class="form-select" onchange="filterKiemDinhTable()">
+            <option value="">-- Tất cả vị trí / Nhà máy --</option>
+            <option value="Thiết bị lưu động">Thiết bị lưu động</option>
+            <option value="Nậm Mu">NMTĐ Nậm Mu</option>
+            <option value="Nậm Ngần">NMTĐ Nậm Ngần</option>
+            <option value="Nậm An">NMTĐ Nậm An</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle mb-0" id="tableKiemDinh">
+          <thead class="table-dark">
+            <tr>
+              <th class="text-center" style="width: 50px;">STT</th>
+              <th>Tên Thiết Bị / Thông Số</th>
+              <th>Mã Hiệu / Số Chế Tạo</th>
+              <th>Số GCN Kiểm Định</th>
+              <th>Vị Trí Lắp Đặt</th>
+              <th class="text-center">Ngày KĐ</th>
+              <th class="text-center">Ngày Hết Hạn</th>
+              <th class="text-center">Trạng Thái</th>
+              <th class="text-center" style="width: 90px;">Hồ Sơ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 1. Pa lăng xích 3.0T -->
+            <tr>
+              <td class="text-center fw-bold">1</td>
+              <td><strong>Pa lăng xích</strong> (Tải trọng 3.0T)</td>
+              <td>VL / <code>10560213</code></td>
+              <td><span class="fw-bold text-dark">02430/KĐXD-TBN</span></td>
+              <td>Thiết bị lưu động</td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 2. Pa lăng xích 1.5T -->
+            <tr>
+              <td class="text-center fw-bold">2</td>
+              <td><strong>Pa lăng xích</strong> (Tải trọng 1.5T)</td>
+              <td>VL / <code>40105963</code></td>
+              <td><span class="fw-bold text-dark">02429/KĐXD-TBN</span></td>
+              <td>Thiết bị lưu động</td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 3. Pa lăng xích 10.0T -->
+            <tr>
+              <td class="text-center fw-bold">3</td>
+              <td><strong>Pa lăng xích</strong> (Tải trọng 10.0T)</td>
+              <td>HS10 / <code>086519</code></td>
+              <td><span class="fw-bold text-dark">02427/KĐXD-TBN</span></td>
+              <td>Thiết bị lưu động</td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 4. Pa lăng xích 3.0T NITTO -->
+            <tr>
+              <td class="text-center fw-bold">4</td>
+              <td><strong>Pa lăng xích</strong> (Tải trọng 3.0T)</td>
+              <td>NITTO / <code>413110</code></td>
+              <td><span class="fw-bold text-dark">02445/KĐXD-TBN</span></td>
+              <td>Thiết bị lưu động</td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 5. Pa lăng xích 3.0T NITTO -->
+            <tr>
+              <td class="text-center fw-bold">5</td>
+              <td><strong>Pa lăng xích</strong> (Tải trọng 3.0T)</td>
+              <td>NITTO / <code>4240</code></td>
+              <td><span class="fw-bold text-dark">02444/KĐXD-TBN</span></td>
+              <td>Thiết bị lưu động</td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 6. Pa lăng xích 5.0T HS5 -->
+            <tr>
+              <td class="text-center fw-bold">6</td>
+              <td><strong>Pa lăng xích</strong> (Tải trọng 5.0T)</td>
+              <td>HS5 / <code>111397</code></td>
+              <td><span class="fw-bold text-dark">02428/KĐXD-TBN</span></td>
+              <td>Thiết bị lưu động</td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 7. Cầu trục hai dầm 45/10T Nậm Ngần -->
+            <tr>
+              <td class="text-center fw-bold">7</td>
+              <td><strong>Cầu trục hai dầm</strong> (45/10 Tấn)</td>
+              <td>CT2D-45/10T-10,8M / <code>2007-10-30</code></td>
+              <td><span class="fw-bold text-dark">02426/KĐXD-TBN</span></td>
+              <td><span class="badge bg-secondary">NMTĐ Nậm Ngần</span></td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 8. Cầu trục gian máy 32/5T Nậm Mu -->
+            <tr>
+              <td class="text-center fw-bold">8</td>
+              <td><strong>Cầu trục gian máy</strong> (32/5 Tấn)</td>
+              <td>QD 32/5-9,4A3 / <code>03831</code></td>
+              <td><span class="fw-bold text-dark">02425/KĐXD-TBN</span></td>
+              <td><span class="badge bg-info text-dark">NMTĐ Nậm Mu</span></td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 9. Cầu trục hai dầm 20/5T Nậm An -->
+            <tr>
+              <td class="text-center fw-bold">9</td>
+              <td><strong>Cầu trục hai dầm</strong> (20/5 Tấn)</td>
+              <td>CT2D-20/5T-9,5M / <code>No1</code></td>
+              <td><span class="fw-bold text-dark">02424/KĐXD-TBN</span></td>
+              <td><span class="badge bg-warning text-dark">NMTĐ Nậm An</span></td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 10. Bình chịu áp lực 2000L Nậm Mu -->
+            <tr>
+              <td class="text-center fw-bold">10</td>
+              <td><strong>Bình chịu áp lực</strong> (Dung tích 2000L)</td>
+              <td>2/1.1 / <code>03FB602</code></td>
+              <td><span class="fw-bold text-dark">02457/KĐXD-TBAL</span></td>
+              <td><span class="badge bg-info text-dark">NMTĐ Nậm Mu</span></td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 11. Bình chịu áp lực 25L Nậm An -->
+            <tr>
+              <td class="text-center fw-bold">11</td>
+              <td><strong>Bình chịu áp lực</strong> (Dung tích 25L)</td>
+              <td>NXQ-A-25/20-L-Y / <code>3N589F60</code></td>
+              <td><span class="fw-bold text-dark">02461/KĐXD-TBAL</span></td>
+              <td><span class="badge bg-warning text-dark">NMTĐ Nậm An</span></td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2028</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 12. Bình tích áp 800L #0370 Nậm Mu -->
+            <tr>
+              <td class="text-center fw-bold">12</td>
+              <td><strong>Bình chịu áp lực (Bình tích áp)</strong> (800L)</td>
+              <td>Bình tích áp / <code>0370</code></td>
+              <td><span class="fw-bold text-dark">02460/KĐXD-TBAL</span></td>
+              <td><span class="badge bg-info text-dark">NMTĐ Nậm Mu</span></td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2028</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 13. Bình tích áp 800L #0369 Nậm Mu -->
+            <tr>
+              <td class="text-center fw-bold">13</td>
+              <td><strong>Bình chịu áp lực (Bình tích áp)</strong> (800L)</td>
+              <td>Bình tích áp / <code>0369</code></td>
+              <td><span class="fw-bold text-dark">02459/KĐXD-TBAL</span></td>
+              <td><span class="badge bg-info text-dark">NMTĐ Nậm Mu</span></td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2028</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 14. Bình tích áp 800L #0371 Nậm Mu -->
+            <tr>
+              <td class="text-center fw-bold">14</td>
+              <td><strong>Bình chịu áp lực (Bình tích áp)</strong> (800L)</td>
+              <td>Bình tích áp / <code>0371</code></td>
+              <td><span class="fw-bold text-dark">02458/KĐXD-TBAL</span></td>
+              <td><span class="badge bg-info text-dark">NMTĐ Nậm Mu</span></td>
+              <td class="text-center">15/05/2026</td>
+              <td class="text-center fw-bold">15/05/2028</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+            <!-- 15. Áp kế lò xo Nậm Ngần -->
+            <tr>
+              <td class="text-center fw-bold">15</td>
+              <td><strong>Áp kế lò xo</strong> (0 ÷ 25 MPa)</td>
+              <td>Lò xo ống / <code>172121</code></td>
+              <td><span class="fw-bold text-dark">05174/KĐXD-AK</span></td>
+              <td><span class="badge bg-secondary">NMTĐ Nậm Ngần</span></td>
+              <td class="text-center">16/05/2026</td>
+              <td class="text-center fw-bold">16/05/2027</td>
+              <td class="text-center"><span class="badge bg-success">Còn hạn</span></td>
+              <td class="text-center">
+                <a href="https://drive.google.com/file/d/19u4gCYqJEsdy7j-dNmpgs_MLy-0EkH7t/view?usp=drive_link" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Xem</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SCRIPT BỔ SUNG TÍNH NĂNG TÌM KIẾM & LỌC BẢNG -->
+<script>
+function filterKiemDinhTable() {
+  var inputSearch = document.getElementById("searchKiemDinh").value.toUpperCase();
+  var filterFactory = document.getElementById("filterFactory").value.toUpperCase();
+  var table = document.getElementById("tableKiemDinh");
+  var tr = table.getElementsByTagName("tr");
+
+  for (var i = 1; i < tr.length; i++) {
+    var tdText = tr[i].textContent || tr[i].innerText;
+    var matchSearch = tdText.toUpperCase().indexOf(inputSearch) > -1;
+    var matchFactory = filterFactory === "" || tdText.toUpperCase().indexOf(filterFactory) > -1;
+
+    if (matchSearch && matchFactory) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+</script>
