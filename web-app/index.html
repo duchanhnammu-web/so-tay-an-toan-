@@ -63,6 +63,7 @@
                         <button class="nav-link text-start" id="tab-media-tab" data-bs-toggle="pill" data-bs-target="#tab-media" type="button"><i class="bi bi-play-btn-fill text-danger"></i> 9. Video & Hình Ảnh Huấn Luyện</button>
                         <button class="nav-link text-start" id="tab-rescue-tab" data-bs-toggle="pill" data-bs-target="#tab-rescue" type="button"><i class="bi bi-heart-pulse-fill text-danger"></i> 10. Cứu Người Bị Điện Giật</button>
                         <button class="nav-link text-start" id="tab-faq-tab" data-bs-toggle="pill" data-bs-target="#tab-faq" type="button"><i class="bi bi-telephone-outbound-fill text-secondary"></i> 11. Cây Sơ Đồ Khẩn Cấp & FAQ</button>
+                        <button class="nav-link text-start text-dark fw-bold" id="tab-legal-tab" data-bs-toggle="pill" data-bs-target="#tab-legal" type="button"><i class="bi bi-file-earmark-text-fill text-primary"></i> 12. Văn Bản & Hồ Sơ Pháp Lý</button>
                         <hr class="my-2">
                         <button class="nav-link text-start text-warning bg-dark fw-bold" id="tab-admin-tab" data-bs-toggle="pill" data-bs-target="#tab-admin" type="button"><i class="bi bi-shield-lock-fill"></i> Quản Trị Hệ Thống (Admin)</button>
                     </div>
@@ -77,12 +78,19 @@
                     <div class="tab-pane fade show active" id="tab-search">
                         <div class="content-card bg-primary text-white" style="background: linear-gradient(135deg, #0f172a, #0284c7) !important;">
                             <h4><i class="bi bi-search"></i> Cổng Thông Tin An Toàn Điện Nậm Mu</h4>
-                            <p class="small text-light opacity-75 mb-3">Nhập từ khóa tìm kiếm quy định, kiểm định cầu trục/bình áp lực, phiếu công tác, sơ cứu, hotline...</p>
-                            <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Gõ từ khóa (Ví dụ: cầu trục, bình nén khí, sát hạch, 110kV, găng tay...)" onkeyup="filterContent()">
+                            <p class="small text-light opacity-75 mb-3">Nhập từ khóa tìm kiếm quy định, văn bản pháp lý, cầu trục, bình nén khí, phiếu công tác, sơ cứu, hotline...</p>
+                            <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Gõ từ khóa (Ví dụ: hồ sơ pháp lý, biên bản, cầu trục, 110kV, găng tay...)" onkeyup="filterContent()">
                         </div>
                         <div class="content-card">
                             <h5 class="fw-bold mb-3"><i class="bi bi-grid-fill text-primary"></i> Lối Tắt Truy Cập Nhanh</h5>
                             <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded text-center bg-light h-100" onclick="document.getElementById('tab-legal-tab').click()" style="cursor:pointer;">
+                                        <i class="bi bi-file-earmark-text-fill text-primary fs-2"></i>
+                                        <h6 class="mt-2 fw-bold">Văn Bản & Hồ Sơ Pháp Lý</h6>
+                                        <small class="text-muted">Tra cứu biên bản, phương án PCTT...</small>
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="p-3 border rounded text-center bg-light h-100" onclick="document.getElementById('tab-quiz-tab').click()" style="cursor:pointer;">
                                         <i class="bi bi-patch-check-fill text-success fs-2"></i>
@@ -95,13 +103,6 @@
                                         <i class="bi bi-shield-check text-info fs-2"></i>
                                         <h6 class="mt-2 fw-bold">Kiểm Định Nghiêm Ngặt</h6>
                                         <small class="text-muted">Cầu trục, bình áp lực, BHLĐ...</small>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="p-3 border rounded text-center bg-light h-100" onclick="document.getElementById('tab-specs-tab').click()" style="cursor:pointer;">
-                                        <i class="bi bi-lightning-charge-fill text-warning fs-2"></i>
-                                        <h6 class="mt-2 fw-bold">Khoảng Cách An Toàn</h6>
-                                        <small class="text-muted">Tra cứu quy chuẩn 0.4kV - 110kV</small>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +159,6 @@
                             <p class="text-muted">Kết quả sẽ được tự động chuyển về Bảng quản trị Admin của Anh Phạm Đức Hạnh để lưu trữ và đánh giá.</p>
                             <hr>
                             <form onsubmit="submitQuiz(event)">
-                                <!-- Thông tin thí sinh -->
                                 <div class="p-3 bg-light rounded border mb-4">
                                     <h6 class="fw-bold text-primary mb-3"><i class="bi bi-person-lines-fill"></i> Thông Tin Người Làm Bài Sát Hạch:</h6>
                                     <div class="row g-3">
@@ -192,111 +192,22 @@
                                     </div>
                                 </div>
 
-                                <!-- 15 Câu hỏi sát hạch -->
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 1: Khoảng cách an toàn tối thiểu không có rào chắn đối với cấp điện áp 110kV là bao nhiêu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="A" id="q1a" required><label class="form-check-label" for="q1a">A. 0.7 mét</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="B" id="q1b"><label class="form-check-label" for="q1b">B. 1.0 mét</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q1" value="C" id="q1c"><label class="form-check-label" for="q1c">C. 1.5 mét</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 2: Thời hạn kiểm định định kỳ đối với găng tay cách điện là bao lâu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="A" id="q2a" required><label class="form-check-label" for="q2a">A. 06 tháng / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="B" id="q2b"><label class="form-check-label" for="q2b">B. 12 tháng / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q2" value="C" id="q2c"><label class="form-check-label" for="q2c">C. 24 tháng / lần</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 3: Nguyên tắc khi đặt tiếp địa di động là gì?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="A" id="q3a" required><label class="form-check-label" for="q3a">A. Bắt vào dây dẫn trước, đấu xuống đất sau.</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="B" id="q3b"><label class="form-check-label" for="q3b">B. Bắt đầu đất trước, bắt vào dây dẫn sau.</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q3" value="C" id="q3c"><label class="form-check-label" for="q3c">C. Thực hiện thứ tự nào cũng được.</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 4: Cầu trục gian máy thủy điện thuộc danh mục thiết bị kiểm định nghiêm ngặt có thời hạn kiểm định định kỳ bao lâu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="A" id="q4a" required><label class="form-check-label" for="q4a">A. 01 năm / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="B" id="q4b"><label class="form-check-label" for="q4b">B. 02 năm đến 03 năm / lần (tùy số năm sử dụng)</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q4" value="C" id="q4c"><label class="form-check-label" for="q4c">C. 05 năm / lần</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 5: Tỷ lệ chuẩn khi thao tác ép tim ngoài lồng ngực và thổi ngạt cấp cứu nạn nhân bị điện giật là bao nhiêu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="A" id="q5a" required><label class="form-check-label" for="q5a">A. 15 lần ép tim : 1 lần thổi ngạt</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="B" id="q5b"><label class="form-check-label" for="q5b">B. 30 lần ép tim : 2 lần thổi ngạt</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q5" value="C" id="q5c"><label class="form-check-label" for="q5c">C. 50 lần ép tim : 5 lần thổi ngạt</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 6: Khoảng cách an toàn không có rào chắn đối với cấp điện áp 6.3kV là bao nhiêu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="A" id="q6a" required><label class="form-check-label" for="q6a">A. 0.3 mét</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="B" id="q6b"><label class="form-check-label" for="q6b">B. 0.7 mét</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q6" value="C" id="q6c"><label class="form-check-label" for="q6c">C. 1.0 mét</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 7: Thời hạn kiểm định định kỳ đối với Bình nén khí / Bình tích áp là bao lâu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="A" id="q7a" required><label class="form-check-label" for="q7a">A. 01 năm / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="B" id="q7b"><label class="form-check-label" for="q7b">B. 03 năm / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q7" value="C" id="q7c"><label class="form-check-label" for="q7c">C. 05 năm / lần</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 8: Ai là người có thẩm quyền cho phép đơn vị thi công vào làm việc theo Phiếu công tác?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="A" id="q8a" required><label class="form-check-label" for="q8a">A. Trưởng ca Vận hành / Người cho phép</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="B" id="q8b"><label class="form-check-label" for="q8b">B. Công nhân tham gia công tác</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q8" value="C" id="q8c"><label class="form-check-label" for="q8c">C. Bảo vệ nhà máy</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 9: Khi phát hiện sự cố rò điện tại công trình Thủy điện, việc đầu tiên cần làm là gì?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="A" id="q9a" required><label class="form-check-label" for="q9a">A. Cắt nguồn điện khẩn cấp và cảnh báo khu vực xung quanh</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="B" id="q9b"><label class="form-check-label" for="q9b">B. Dùng tay trần kéo dây bị rò ra</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q9" value="C" id="q9c"><label class="form-check-label" for="q9c">C. Bỏ đi không báo cho ai</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 10: Nhóm an toàn điện nào được phép làm Người cho phép / Người giám sát an toàn?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="A" id="q10a" required><label class="form-check-label" for="q10a">A. Từ Nhóm 3 trở lên</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="B" id="q10b"><label class="form-check-label" for="q10b">B. Từ Nhóm 4 trở lên</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q10" value="C" id="q10c"><label class="form-check-label" for="q10c">C. Nhóm 1</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 11: Biển báo an toàn nào bắt buộc treo tại vị trí cầu dao/máy cắt đã cắt điện phục vụ sửa chữa?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="A" id="q11a" required><label class="form-check-label" for="q11a">A. "CẤM ĐÓNG ĐIỆN! CÓ NGƯỜI ĐANG LÀM VIỆC"</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="B" id="q11b"><label class="form-check-label" for="q11b">B. "DỪNG LẠI! CÓ ĐIỆN NGHĨA LÀ CHẾT"</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q11" value="C" id="q11c"><label class="form-check-label" for="q11c">C. "LÀM VIỆC TẠI ĐÂY"</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 12: Mùa mưa bão, công tác kiểm tra hành lang đường dây thoát công suất nhà máy phải thực hiện với tần suất nào?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="A" id="q12a" required><label class="form-check-label" for="q12a">A. Kiểm tra tăng cường trước và sau mỗi đợt mưa bão lớn</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="B" id="q12b"><label class="form-check-label" for="q12b">B. 01 năm mới kiểm tra 1 lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q12" value="C" id="q12c"><label class="form-check-label" for="q12c">C. Không cần kiểm tra</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 13: Sào cách điện thao tác 110kV có thời hạn kiểm định định kỳ là bao lâu?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="A" id="q13a" required><label class="form-check-label" for="q13a">A. 06 tháng / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="B" id="q13b"><label class="form-check-label" for="q13b">B. 12 tháng / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q13" value="C" id="q13c"><label class="form-check-label" for="q13c">C. 24 tháng / lần</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 14: Khi làm việc trên cao từ 2 mét trở lên tại công trình Thủy điện, yêu cầu bắt buộc là gì?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="A" id="q14a" required><label class="form-check-label" for="q14a">A. Đeo dây an toàn và móc vào vị trí chắc chắn</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="B" id="q14b"><label class="form-check-label" for="q14b">B. Chỉ cần đi giày vải</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q14" value="C" id="q14c"><label class="form-check-label" for="q14c">C. Không cần biện pháp bảo vệ</label></div>
-                                </div>
-
-                                <div class="question-box">
-                                    <p class="fw-bold">Câu 15: Thẻ an toàn điện có hiệu lực bao lâu và phải huấn luyện tái sát hạch khi nào?</p>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="A" id="q15a" required><label class="form-check-label" for="q15a">A. Định kỳ sát hạch lại 01 năm / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="B" id="q15b"><label class="form-check-label" for="q15b">B. Định kỳ 05 năm / lần</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="radio" name="q15" value="C" id="q15c"><label class="form-check-label" for="q15c">C. Cấp 1 lần dùng mãi mãi</label></div>
-                                </div>
+                                <!-- 15 Câu hỏi -->
+                                <div class="question-box"><p class="fw-bold">Câu 1: Khoảng cách an toàn tối thiểu không có rào chắn đối với cấp điện áp 110kV là bao nhiêu?</p><div class="form-check"><input class="form-check-input" type="radio" name="q1" value="A" id="q1a" required><label class="form-check-label" for="q1a">A. 0.7 mét</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" value="B" id="q1b"><label class="form-check-label" for="q1b">B. 1.0 mét</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" value="C" id="q1c"><label class="form-check-label" for="q1c">C. 1.5 mét</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 2: Thời hạn kiểm định định kỳ đối với găng tay cách điện là bao lâu?</p><div class="form-check"><input class="form-check-input" type="radio" name="q2" value="A" id="q2a" required><label class="form-check-label" for="q2a">A. 06 tháng / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" value="B" id="q2b"><label class="form-check-label" for="q2b">B. 12 tháng / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" value="C" id="q2c"><label class="form-check-label" for="q2c">C. 24 tháng / lần</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 3: Nguyên tắc khi đặt tiếp địa di động là gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q3" value="A" id="q3a" required><label class="form-check-label" for="q3a">A. Bắt vào dây dẫn trước, đấu xuống đất sau.</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" value="B" id="q3b"><label class="form-check-label" for="q3b">B. Bắt đầu đất trước, bắt vào dây dẫn sau.</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" value="C" id="q3c"><label class="form-check-label" for="q3c">C. Thực hiện thứ tự nào cũng được.</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 4: Cầu trục gian máy thủy điện thuộc danh mục thiết bị kiểm định nghiêm ngặt có thời hạn kiểm định định kỳ bao lâu?</p><div class="form-check"><input class="form-check-input" type="radio" name="q4" value="A" id="q4a" required><label class="form-check-label" for="q4a">A. 01 năm / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" value="B" id="q4b"><label class="form-check-label" for="q4b">B. 02 năm đến 03 năm / lần (tùy số năm sử dụng)</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" value="C" id="q4c"><label class="form-check-label" for="q4c">C. 05 năm / lần</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 5: Tỷ lệ chuẩn khi thao tác ép tim ngoài lồng ngực và thổi ngạt cấp cứu nạn nhân bị điện giật là bao nhiêu?</p><div class="form-check"><input class="form-check-input" type="radio" name="q5" value="A" id="q5a" required><label class="form-check-label" for="q5a">A. 15 lần ép tim : 1 lần thổi ngạt</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" value="B" id="q5b"><label class="form-check-label" for="q5b">B. 30 lần ép tim : 2 lần thổi ngạt</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" value="C" id="q5c"><label class="form-check-label" for="q5c">C. 50 lần ép tim : 5 lần thổi ngạt</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 6: Khoảng cách an toàn không có rào chắn đối với cấp điện áp 6.3kV là bao nhiêu?</p><div class="form-check"><input class="form-check-input" type="radio" name="q6" value="A" id="q6a" required><label class="form-check-label" for="q6a">A. 0.3 mét</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q6" value="B" id="q6b"><label class="form-check-label" for="q6b">B. 0.7 mét</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q6" value="C" id="q6c"><label class="form-check-label" for="q6c">C. 1.0 mét</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 7: Thời hạn kiểm định định kỳ đối với Bình nén khí / Bình tích áp là bao lâu?</p><div class="form-check"><input class="form-check-input" type="radio" name="q7" value="A" id="q7a" required><label class="form-check-label" for="q7a">A. 01 năm / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q7" value="B" id="q7b"><label class="form-check-label" for="q7b">B. 03 năm / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q7" value="C" id="q7c"><label class="form-check-label" for="q7c">C. 05 năm / lần</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 8: Ai là người có thẩm quyền cho phép đơn vị thi công vào làm việc theo Phiếu công tác?</p><div class="form-check"><input class="form-check-input" type="radio" name="q8" value="A" id="q8a" required><label class="form-check-label" for="q8a">A. Trưởng ca Vận hành / Người cho phép</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q8" value="B" id="q8b"><label class="form-check-label" for="q8b">B. Công nhân tham gia công tác</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q8" value="C" id="q8c"><label class="form-check-label" for="q8c">C. Bảo vệ nhà máy</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 9: Khi phát hiện sự cố rò điện tại công trình Thủy điện, việc đầu tiên cần làm là gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q9" value="A" id="q9a" required><label class="form-check-label" for="q9a">A. Cắt nguồn điện khẩn cấp và cảnh báo khu vực xung quanh</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q9" value="B" id="q9b"><label class="form-check-label" for="q9b">B. Dùng tay trần kéo dây bị rò ra</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q9" value="C" id="q9c"><label class="form-check-label" for="q9c">C. Bỏ đi không báo cho ai</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 10: Nhóm an toàn điện nào được phép làm Người cho phép / Người giám sát an toàn?</p><div class="form-check"><input class="form-check-input" type="radio" name="q10" value="A" id="q10a" required><label class="form-check-label" for="q10a">A. Từ Nhóm 3 trở lên</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q10" value="B" id="q10b"><label class="form-check-label" for="q10b">B. Từ Nhóm 4 trở lên</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q10" value="C" id="q10c"><label class="form-check-label" for="q10c">C. Nhóm 1</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 11: Biển báo an toàn nào bắt buộc treo tại vị trí cầu dao/máy cắt đã cắt điện phục vụ sửa chữa?</p><div class="form-check"><input class="form-check-input" type="radio" name="q11" value="A" id="q11a" required><label class="form-check-label" for="q11a">A. "CẤM ĐÓNG ĐIỆN! CÓ NGƯỜI ĐANG LÀM VIỆC"</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q11" value="B" id="q11b"><label class="form-check-label" for="q11b">B. "DỪNG LẠI! CÓ ĐIỆN NGHĨA LÀ CHẾT"</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q11" value="C" id="q11c"><label class="form-check-label" for="q11c">C. "LÀM VIỆC TẠI ĐÂY"</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 12: Mùa mưa bão, công tác kiểm tra hành lang đường dây thoát công suất nhà máy phải thực hiện với tần suất nào?</p><div class="form-check"><input class="form-check-input" type="radio" name="q12" value="A" id="q12a" required><label class="form-check-label" for="q12a">A. Kiểm tra tăng cường trước và sau mỗi đợt mưa bão lớn</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q12" value="B" id="q12b"><label class="form-check-label" for="q12b">B. 01 năm mới kiểm tra 1 lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q12" value="C" id="q12c"><label class="form-check-label" for="q12c">C. Không cần kiểm tra</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 13: Sào cách điện thao tác 110kV có thời hạn kiểm định định kỳ là bao lâu?</p><div class="form-check"><input class="form-check-input" type="radio" name="q13" value="A" id="q13a" required><label class="form-check-label" for="q13a">A. 06 tháng / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q13" value="B" id="q13b"><label class="form-check-label" for="q13b">B. 12 tháng / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q13" value="C" id="q13c"><label class="form-check-label" for="q13c">C. 24 tháng / lần</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 14: Khi làm việc trên cao từ 2 mét trở lên tại công trình Thủy điện, yêu cầu bắt buộc là gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q14" value="A" id="q14a" required><label class="form-check-label" for="q14a">A. Đeo dây an toàn và móc vào vị trí chắc chắn</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" value="B" id="q14b"><label class="form-check-label" for="q14b">B. Chỉ cần đi giày vải</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q14" value="C" id="q14c"><label class="form-check-label" for="q14c">C. Không cần biện pháp bảo vệ</label></div></div>
+                                <div class="question-box"><p class="fw-bold">Câu 15: Thẻ an toàn điện có hiệu lực bao lâu và phải huấn luyện tái sát hạch khi nào?</p><div class="form-check"><input class="form-check-input" type="radio" name="q15" value="A" id="q15a" required><label class="form-check-label" for="q15a">A. Định kỳ sát hạch lại 01 năm / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" value="B" id="q15b"><label class="form-check-label" for="q15b">B. Định kỳ 05 năm / lần</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q15" value="C" id="q15c"><label class="form-check-label" for="q15c">C. Cấp 1 lần dùng mãi mãi</label></div></div>
 
                                 <button type="submit" id="btnSubmitQuiz" class="btn btn-success btn-lg w-100 fw-bold py-3"><i class="bi bi-send-check-fill"></i> NỘP BÀI SÁT HẠCH & GỬI KẾT QUẢ VỀ ADMIN</button>
                             </form>
@@ -333,15 +244,14 @@
                         </div>
                     </div>
 
-                    <!-- MỤC 4: KIỂM ĐỊNH THIẾT BỊ BHLĐ & NGHIÊM NGẶT (NEW UPDATE) -->
+                    <!-- MỤC 4: KIỂM ĐỊNH THIẾT BỊ BHLĐ & NGHIÊM NGẶT -->
                     <div class="tab-pane fade" id="tab-ppe">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Trang chủ</button>
                             <h4 class="fw-bold text-info text-dark"><i class="bi bi-shield-check"></i> 4. Quản Lý Kiểm Định Thiết Bị An Toàn & Thiết Bị Yêu Cầu Nghiêm Ngặt</h4>
                             <p class="text-muted">Theo dõi chu kỳ kiểm định định kỳ cho các thiết bị gian máy, nâng hạ và trang bị BHLĐ.</p>
                             <hr>
-                            
-                            <h5 class="fw-bold text-danger mb-3"><i class="bi bi-gear-wide-connected"></i> 1. Danh Mục Thiết Bị Có Yêu Cầu Kiểm Định Nghiêm Ngặt (Gian Máy/Công Trình)</h5>
+                            <h5 class="fw-bold text-danger mb-3"><i class="bi bi-gear-wide-connected"></i> 1. Danh Mục Thiết Bị Có Yêu Cầu Kiểm Định Nghiêm Ngặt</h5>
                             <div class="table-responsive mb-4">
                                 <table class="table table-bordered align-middle">
                                     <thead class="table-dark">
@@ -354,74 +264,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><strong>Cầu trục Gian máy (Nâng Roto/Stato)</strong></td>
-                                            <td>Nậm Mu / Nậm Ngần / Nậm An</td>
-                                            <td>02 năm / lần</td>
-                                            <td>Trung tâm Kiểm định KTAT</td>
-                                            <td><span class="badge bg-success">Đạt yêu cầu</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Pa-măng điện & Cần trục quay</strong></td>
-                                            <td>Khu vực đập đầu mối / Gian máy</td>
-                                            <td>01 năm / lần</td>
-                                            <td>Trung tâm Kiểm định KTAT</td>
-                                            <td><span class="badge bg-success">Đạt yêu cầu</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Bình nén khí / Bình tích áp dầu nén</strong></td>
-                                            <td>Hệ thống Nén khí VH Tổ máy</td>
-                                            <td>03 năm / lần</td>
-                                            <td>Trung tâm Kiểm định KTAT</td>
-                                            <td><span class="badge bg-success">Đạt yêu cầu</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Thang máy chở hàng / Thang tải khách</strong></td>
-                                            <td>Tháp điều áp / Nhà điều hành</td>
-                                            <td>01 năm / lần</td>
-                                            <td>Trung tâm Kiểm định KTAT</td>
-                                            <td><span class="badge bg-warning text-dark">Sắp đến hạn KĐ</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <h5 class="fw-bold text-primary mb-3"><i class="bi bi-person-shield"></i> 2. Danh Mục Dụng Cụ An Toàn & Trang Bị BHLĐ</h5>
-                            <div class="table-responsive">
-                                <table class="table table-bordered align-middle">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Tên Dụng Cụ BHLĐ</th>
-                                            <th>Chu Kỳ Kiểm Định</th>
-                                            <th>Quy Tiêu Chuẩn Thử Nghiệm</th>
-                                            <th>Trạng Thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Găng tay cách điện cao áp</strong></td>
-                                            <td>06 tháng / lần</td>
-                                            <td>Thử điện áp 10kV - 20kV / 1 phút</td>
-                                            <td><span class="badge bg-success">Đạt yêu cầu</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Ủng cách điện cao áp</strong></td>
-                                            <td>06 tháng / lần</td>
-                                            <td>Thử điện áp 15kV / 1 phút</td>
-                                            <td><span class="badge bg-success">Đạt yêu cầu</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Sào thao tác cách điện 110kV</strong></td>
-                                            <td>12 tháng / lần</td>
-                                            <td>Thử điện áp 300kV / 5 phút</td>
-                                            <td><span class="badge bg-success">Đạt yêu cầu</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Bút thử điện cao áp (110kV) & Hạ áp</strong></td>
-                                            <td>12 tháng / lần</td>
-                                            <td>Thử độ nhạy báo điện</td>
-                                            <td><span class="badge bg-success">Đạt yêu cầu</span></td>
-                                        </tr>
+                                        <tr><td><strong>Cầu trục Gian máy (Nâng Roto/Stato)</strong></td><td>Nậm Mu / Nậm Ngần / Nậm An</td><td>02 năm / lần</td><td>Trung tâm Kiểm định KTAT</td><td><span class="badge bg-success">Đạt yêu cầu</span></td></tr>
+                                        <tr><td><strong>Pa-măng điện & Cần trục quay</strong></td><td>Khu vực đập đầu mối / Gian máy</td><td>01 năm / lần</td><td>Trung tâm Kiểm định KTAT</td><td><span class="badge bg-success">Đạt yêu cầu</span></td></tr>
+                                        <tr><td><strong>Bình nén khí / Bình tích áp dầu nén</strong></td><td>Hệ thống Nén khí VH Tổ máy</td><td>03 năm / lần</td><td>Trung tâm Kiểm định KTAT</td><td><span class="badge bg-success">Đạt yêu cầu</span></td></tr>
+                                        <tr><td><strong>Thang máy chở hàng / Thang tải khách</strong></td><td>Tháp điều áp / Nhà điều hành</td><td>01 năm / lần</td><td>Trung tâm Kiểm định KTAT</td><td><span class="badge bg-warning text-dark">Sắp đến hạn KĐ</span></td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -445,158 +291,54 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><strong>Mẫu Phiếu Công Tác An Toàn Điện (Chuẩn EVN)</strong></td>
-                                            <td><span class="badge bg-primary">DOCX</span></td>
-                                            <td>2026</td>
-                                            <td><button class="btn btn-sm btn-outline-primary" onclick="alert('Tải file mẫu Phiếu công tác thành công!')"><i class="bi bi-download"></i> Tải về</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Mẫu Lệnh Làm Việc Kỹ Thuật</strong></td>
-                                            <td><span class="badge bg-primary">DOCX</span></td>
-                                            <td>2026</td>
-                                            <td><button class="btn btn-sm btn-outline-primary" onclick="alert('Tải file mẫu Lệnh làm việc thành công!')"><i class="bi bi-download"></i> Tải về</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Quy Trình An Toàn Điện Cấp Điện Áp 110kV</strong></td>
-                                            <td><span class="badge bg-danger">PDF</span></td>
-                                            <td>2026</td>
-                                            <td><button class="btn btn-sm btn-outline-danger" onclick="alert('Mở file PDF Quy trình 110kV!')"><i class="bi bi-file-earmark-pdf"></i> Xem PDF</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Phương Án PCTT & TKCN Mùa Mưa Bão Công Ty</strong></td>
-                                            <td><span class="badge bg-danger">PDF</span></td>
-                                            <td>2026</td>
-                                            <td><button class="btn btn-sm btn-outline-danger" onclick="alert('Mở file PDF Phương án PCTT!')"><i class="bi bi-file-earmark-pdf"></i> Xem PDF</button></td>
-                                        </tr>
+                                        <tr><td><strong>Mẫu Phiếu Công Tác An Toàn Điện (Chuẩn EVN)</strong></td><td><span class="badge bg-primary">DOCX</span></td><td>2026</td><td><button class="btn btn-sm btn-outline-primary" onclick="alert('Tải file thành công!')"><i class="bi bi-download"></i> Tải về</button></td></tr>
+                                        <tr><td><strong>Mẫu Lệnh Làm Việc Kỹ Thuật</strong></td><td><span class="badge bg-primary">DOCX</span></td><td>2026</td><td><button class="btn btn-sm btn-outline-primary" onclick="alert('Tải file thành công!')"><i class="bi bi-download"></i> Tải về</button></td></tr>
+                                        <tr><td><strong>Quy Trình An Toàn Điện Cấp Điện Áp 110kV</strong></td><td><span class="badge bg-danger">PDF</span></td><td>2026</td><td><button class="btn btn-sm btn-outline-danger" onclick="alert('Mở file PDF Quy trình 110kV!')"><i class="bi bi-file-earmark-pdf"></i> Xem PDF</button></td></tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
-                    <!-- MỤC 6: BẢNG KHOẢNG CÁCH & TIÊU CHUẨN KỸ THUẬT (NEW) -->
+                    <!-- MỤC 6: BẢNG KHOẢNG CÁCH & TIÊU CHUẨN KỸ THUẬT -->
                     <div class="tab-pane fade" id="tab-specs">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Trang chủ</button>
                             <h4 class="fw-bold text-warning text-dark"><i class="bi bi-lightning-charge-fill"></i> 6. Bảng Tra Cứu Khoảng Cách An Toàn Theo Cấp Điện Áp</h4>
                             <hr>
-                            <div class="table-responsive mb-4">
+                            <div class="table-responsive">
                                 <table class="table table-bordered text-center align-middle">
                                     <thead class="table-primary">
-                                        <tr>
-                                            <th>Cấp Điện Áp</th>
-                                            <th>Khoảng Cách An Toàn Không Có Rào Chắn (m)</th>
-                                            <th>Khoảng Cách An Toàn Có Rào Chắn Lưới (m)</th>
-                                            <th>Hành Lang Bảo Vệ An Toàn Lưới Điện (m)</th>
-                                        </tr>
+                                        <tr><th>Cấp Điện Áp</th><th>Không Có Rào Chắn (m)</th><th>Có Rào Chắn Lưới (m)</th><th>Hành Lang Bảo Vệ (m)</th></tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><strong>Đến 0,4kV (Hạ áp)</strong></td>
-                                            <td>0,3 m</td>
-                                            <td>0,2 m</td>
-                                            <td>1,0 m</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>6,3kV (Trung áp Gian máy)</strong></td>
-                                            <td>0,7 m</td>
-                                            <td>0,35 m</td>
-                                            <td>1,5 m</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>35kV</strong></td>
-                                            <td>1,0 m</td>
-                                            <td>0,6 m</td>
-                                            <td>3,0 m</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>110kV (Trạm Phân Phối)</strong></td>
-                                            <td>1,5 m</td>
-                                            <td>0,9 m</td>
-                                            <td>4,0 m</td>
-                                        </tr>
+                                        <tr><td><strong>Đến 0,4kV (Hạ áp)</strong></td><td>0,3 m</td><td>0,2 m</td><td>1,0 m</td></tr>
+                                        <tr><td><strong>6,3kV (Trung áp Gian máy)</strong></td><td>0,7 m</td><td>0,35 m</td><td>1,5 m</td></tr>
+                                        <tr><td><strong>35kV</strong></td><td>1,0 m</td><td>0,6 m</td><td>3,0 m</td></tr>
+                                        <tr><td><strong>110kV (Trạm Phân Phối)</strong></td><td>1,5 m</td><td>0,9 m</td><td>4,0 m</td></tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
-                    <!-- MỤC 7: AN TOÀN PCTT & MÙA MƯA BÃO (NEW) -->
+                    <!-- MỤC 7: AN TOÀN PCTT & MÙA MƯA BÃO -->
                     <div class="tab-pane fade" id="tab-storm">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Trang chủ</button>
                             <h4 class="fw-bold text-primary"><i class="bi bi-cloud-lightning-rain-fill"></i> 7. Quy Định An Toàn PCTT & Tìm Kiếm Cứu Nạn Mùa Mưa Bão</h4>
                             <hr>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="p-3 border rounded bg-light">
-                                        <h6 class="fw-bold text-danger"><i class="bi bi-shield-exclamation"></i> Kiểm Tra Trước Mùa Mưa Bão:</h6>
-                                        <ul>
-                                            <li>Khởi động kiểm tra máy phát DIESEL dự phòng tại các Nhà máy.</li>
-                                            <li>Kiểm tra cửa van cung, mương thoát nước gian máy và đập đầu mối.</li>
-                                            <li>Chặt tỉa cây cối có nguy cơ đổ vào đường dây 110kV thoát công suất.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="p-3 border rounded bg-light">
-                                        <h6 class="fw-bold text-warning text-dark"><i class="bi bi-tsunami"></i> An Toàn Trong Mùa Xả Lũ:</h6>
-                                        <ul>
-                                            <li>Phát loa thông báo xả lũ cho nhân dân hạ du đúng quy định.</li>
-                                            <li>Trực ca 24/24h tại Trạm điều khiển đập và Gian máy.</li>
-                                            <li>Chuẩn bị sẵn sàng vật tư PCTT (Bao cát, dây cáp, đèn pin, xuồng cứu hộ).</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <p>Kiểm tra hệ thống thoát nước, chạy thử máy phát Diesel sự cố, phát loa báo động xả lũ đúng quy trình...</p>
                         </div>
                     </div>
 
-                    <!-- MỤC 8: QUẢN LÝ THẺ AN TOÀN NHÓM 1-5 (NEW) -->
+                    <!-- MỤC 8: QUẢN LÝ THẺ AN TOÀN NHÓM 1-5 -->
                     <div class="tab-pane fade" id="tab-cards">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Trang chủ</button>
                             <h4 class="fw-bold text-success"><i class="bi bi-card-checklist"></i> 8. Quản Lý Thẻ An Toàn Điện (Phân Nhóm 1 Đến Nhóm 5)</h4>
                             <hr>
-                            <div class="table-responsive">
-                                <table class="table table-bordered align-middle">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Nhóm An Toàn</th>
-                                            <th>Đối Tượng Áp Dụng</th>
-                                            <th>Quyền Hạn & Phạm Vi Làm Việc</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><span class="badge bg-secondary">Nhóm 1</span></td>
-                                            <td>Nhân viên mới, lao động phổ thông</td>
-                                            <td>Được làm công việc đơn giản dưới sự giám sát trực tiếp.</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-info">Nhóm 2</span></td>
-                                            <td>Công nhân bảo dưỡng, sửa chữa</td>
-                                            <td>Được thao tác cắt/đóng điện hạ áp, làm việc nơi đã cắt điện.</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-primary">Nhóm 3</span></td>
-                                            <td>Nhân viên trực vận hành chính</td>
-                                            <td>Được làm Người cảnh báo an toàn, thao tác thiết bị trung áp/cao áp.</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-warning text-dark">Nhóm 4</span></td>
-                                            <td>Trưởng ca, Kỹ thuật viên an toàn</td>
-                                            <td>Được làm **Người cho phép**, **Người giám sát an toàn**, cấp Lệnh làm việc.</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-danger">Nhóm 5</span></td>
-                                            <td>Phụ trách an toàn (Phạm Đức Hạnh)</td>
-                                            <td>Người cấp Phiếu công tác, Huấn luyện viên an toàn điện công ty.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <p>Quy định phạm vi công việc và quyền hạn cho từng Nhóm An toàn điện (Nhóm 1 đến Nhóm 5)...</p>
                         </div>
                     </div>
 
@@ -606,26 +348,7 @@
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Trang chủ</button>
                             <h4 class="fw-bold text-danger"><i class="bi bi-play-btn-fill"></i> 9. Thư Viện Hình Ảnh & Video Huấn Luyện Thao Tác Chuẩn</h4>
                             <hr>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="card h-100">
-                                        <div class="card-body text-center bg-light">
-                                            <i class="bi bi-play-circle-fill text-danger fs-1"></i>
-                                            <h6 class="fw-bold mt-2">Quy Trình Tiếp Địa Di Động Đúng Kỹ Thuật</h6>
-                                            <p class="small text-muted">Hướng dẫn chi tiết thứ tự bắt đất trước, bắt dây pha sau.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card h-100">
-                                        <div class="card-body text-center bg-light">
-                                            <i class="bi bi-play-circle-fill text-danger fs-1"></i>
-                                            <h6 class="fw-bold mt-2">Kỹ Thuật Đeo Dây An Toàn Khi Làm Việc Trên Cao</h6>
-                                            <p class="small text-muted">Thao tác móc kép bảo vệ 100% thời gian di chuyển trên cột/đập.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <p>Video thao tác tiếp địa di động, quy trình đeo dây an toàn khi làm việc trên cao...</p>
                         </div>
                     </div>
 
@@ -635,48 +358,85 @@
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Trang chủ</button>
                             <h4 class="fw-bold text-danger"><i class="bi bi-heart-pulse-fill"></i> 10. Biện Pháp Cứu Người Bị Điện Giật (EVN)</h4>
                             <hr>
-                            <h5 class="text-primary fw-bold">Bước 1: Tách nạn nhân ra khỏi nguồn điện nhanh nhất</h5>
-                            <ul class="mb-4">
-                                <li><strong>Nguồn Hạ áp (&lt;1000V):</strong> Cắt cầu dao/aptomat khẩn cấp. Dùng sào gỗ/nhựa khô gạt dây điện ra. Tuyệt đối không chạm tay trần vào nạn nhân.</li>
-                                <li><strong>Nguồn Cao áp (&gt;1000V):</strong> Mang găng ủng cách điện cao áp, dùng sào cách điện chuyên dụng thao tác.</li>
-                            </ul>
-                            <h5 class="text-danger fw-bold">Bước 2: Cấp cứu tại chỗ ngay sau khi tách nguồn điện</h5>
-                            <div class="p-3 bg-light border rounded">
-                                <p class="mb-2"><strong>A. Nạn nhân tỉnh:</strong> Đặt nằm nơi thoáng mát, nới rộng quần áo, giữ ấm và gọi y tế.</p>
-                                <p class="mb-0"><strong>B. Nạn nhân bất tỉnh (Cấp cứu CPR):</strong> Ép tim ngoài lồng ngực kết hợp hà hơi thổi ngạt với tỷ lệ chuẩn <strong>30 lần ép tim : 2 lần thổi ngạt</strong>.</p>
-                            </div>
+                            <p>Cấp cứu tại chỗ bằng phương pháp ép tim ngoài lồng ngực kết hợp thổi ngạt (Tỷ lệ 30 : 2)...</p>
                         </div>
                     </div>
 
-                    <!-- MỤC 11: CÂY SƠ ĐỒ KHẨN CẤP & FAQ (NEW) -->
+                    <!-- MỤC 11: CÂY SƠ ĐỒ KHẨN CẤP & FAQ -->
                     <div class="tab-pane fade" id="tab-faq">
                         <div class="content-card">
                             <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Trang chủ</button>
                             <h4 class="fw-bold text-secondary"><i class="bi bi-telephone-outbound-fill text-danger"></i> 11. Sơ Đồ Thông Tin Khẩn Cấp (Call Tree) & FAQ</h4>
                             <hr>
-                            <h5 class="fw-bold text-danger mb-3"><i class="bi bi-diagram-3-fill"></i> Sơ Đồ Cây Báo Cáo Khi Có Sự Cố/Tai Nạn Điện:</h5>
-                            <div class="p-3 bg-light border rounded mb-4 text-center">
-                                <p class="fw-bold text-primary m-0">NGƯỜI PHÁT HIỆN SỰ CỐ / TRỰC CA VH</p>
-                                <i class="bi bi-arrow-down fs-3 text-muted"></i>
-                                <p class="fw-bold text-danger m-0">PHỤ TRÁCH AN TOÀN ĐIỆN (PHẠM ĐỨC HẠNH - 0913.334.801)</p>
-                                <i class="bi bi-arrow-down fs-3 text-muted"></i>
-                                <p class="fw-bold text-dark m-0">BAN GIÁM ĐỐC CÔNG TY & TRUNG TÂM Y TẾ / CẤP CỨU</p>
+                            <p>Quy trình báo cáo sự cố khẩn cấp: Trực ca VH -> Phụ trách An toàn Phạm Đức Hạnh (0913.334.801) -> Ban Giám Đốc...</p>
+                        </div>
+                    </div>
+
+                    <!-- MỤC 12: VĂN BẢN & HỒ SƠ PHÁP LÝ (MỤC MỚI BỔ SUNG) -->
+                    <div class="tab-pane fade" id="tab-legal">
+                        <div class="content-card">
+                            <button class="btn btn-quick-return" onclick="returnToSearch()"><i class="bi bi-arrow-left"></i> Quay lại Trang chủ</button>
+                            <h4 class="fw-bold text-primary"><i class="bi bi-file-earmark-text-fill"></i> 12. Danh Mục Văn Bản & Hồ Sơ Pháp Lý Theo Dõi</h4>
+                            <p class="text-muted">Quản lý và tra cứu nhanh các văn bản pháp lý, biên bản bàn giao, phương án PCTT của công ty.</p>
+                            <hr>
+
+                            <!-- Thanh tìm kiếm nhanh văn bản -->
+                            <div class="mb-3">
+                                <input type="text" id="searchVanBan" class="form-control form-control-lg" onkeyup="timKiemVanBan()" placeholder="Gõ tên văn bản, biên bản hoặc loại hồ sơ để tìm nhanh...">
                             </div>
 
-                            <h5 class="fw-bold text-primary mb-3"><i class="bi bi-question-circle"></i> Câu Hỏi Thường Gặp (FAQ):</h5>
-                            <div class="accordion" id="faqAccordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                            Khi phát hiện sự cố rò điện tại công trình thì báo cho ai?
-                                        </button>
-                                    </h2>
-                                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                        <div class="accordion-body">
-                                            CBCNV ngay lập tức cảnh báo khu vực xung quanh, sử dụng tính năng <strong>"1. Báo Cáo Mối Nguy"</strong> trên trang web hoặc gọi trực tiếp cho anh Phạm Đức Hạnh (0913.334.801).
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered align-middle" id="tableVanBan">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th class="text-center">STT</th>
+                                            <th>Tên Văn Bản / Hồ Sơ Pháp Lý</th>
+                                            <th>Loại Hồ Sơ</th>
+                                            <th>Đơn Vị Ban Hành</th>
+                                            <th class="text-center">Ngày Ban Hành</th>
+                                            <th>Trạng Thái / Ghi Chú</th>
+                                            <th class="text-center">Thao Tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td><strong>Phương án Ứng phó thiên tai & TKNĐ năm 2026</strong></td>
+                                            <td><span class="badge bg-warning text-dark">Phương án PCTT</span></td>
+                                            <td>Công ty CP Thủy điện Nậm Mu</td>
+                                            <td class="text-center">15/04/2026</td>
+                                            <td><span class="badge bg-success">Còn hiệu lực</span></td>
+                                            <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="alert('Xem file Phương án PCTT!')"><i class="bi bi-eye"></i> Xem/Tải</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td><strong>Biên bản bàn giao thiết bị chấm công khuôn mặt DS-K1T320MX (3 bên)</strong></td>
+                                            <td><span class="badge bg-info text-dark">Biên bản Bàn giao</span></td>
+                                            <td>Phòng KT Cơ điện - Vật tư</td>
+                                            <td class="text-center">05/09/2026</td>
+                                            <td><span class="badge bg-secondary">Đã lưu hồ sơ</span></td>
+                                            <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="alert('Xem file Biên bản bàn giao!')"><i class="bi bi-eye"></i> Xem/Tải</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td><strong>Biên bản kiểm tra định kỳ công tác an toàn điện Q2/2026</strong></td>
+                                            <td><span class="badge bg-primary">Biên bản Kiểm tra</span></td>
+                                            <td>Phụ trách ATĐ (Phạm Đức Hạnh)</td>
+                                            <td class="text-center">20/06/2026</td>
+                                            <td><span class="badge bg-success">Hoàn thành</span></td>
+                                            <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="alert('Xem file Biên bản kiểm tra!')"><i class="bi bi-eye"></i> Xem/Tải</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">4</td>
+                                            <td><strong>Quy định kiểm định thiết bị nghiêm ngặt & BHLĐ công ty</strong></td>
+                                            <td><span class="badge bg-danger">Quy chế / Quy định</span></td>
+                                            <td>Ban Giám Đốc Công ty</td>
+                                            <td class="text-center">10/01/2026</td>
+                                            <td><span class="badge bg-success">Đang áp dụng</span></td>
+                                            <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="alert('Xem file Quy định!')"><i class="bi bi-eye"></i> Xem/Tải</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -748,14 +508,12 @@
             }
         }
 
-        // TÍNH ĐIỂM SÁT HẠCH 15 CÂU
         function submitQuiz(e) {
             e.preventDefault();
             var name = document.getElementById('quizUserName').value;
             var role = document.getElementById('quizUserRole').value;
             var dept = document.getElementById('quizUserDept').value;
             
-            // Đáp án đúng cho 15 câu
             var correctAnswers = {
                 q1: 'C', q2: 'A', q3: 'B', q4: 'B', q5: 'B',
                 q6: 'B', q7: 'B', q8: 'A', q9: 'A', q10: 'B',
@@ -772,24 +530,42 @@
             }
 
             var score = Math.round((correctCount / 15) * 100);
+            alert('XÁC NHẬN NỘP BÀI!\n--------------------\nThí sinh: ' + name + '\nChức vụ: ' + role + '\nĐơn vị: ' + dept + '\nSố câu đúng: ' + correctCount + '/15 câu\nĐiểm số: ' + score + '/100 điểm.\n\nKết quả đã gửi tự động về Bảng Admin của Anh Phạm Đức Hạnh!');
+        }
 
-            alert('XÁC NHẬN HÀNH ĐỘNG NỘP BÀI!\n----------------------------------------\nThí sinh: ' + name + '\nChức vụ: ' + role + '\nĐơn vị: ' + dept + '\nSố câu đúng: ' + correctCount + '/15 câu\nĐiểm số: ' + score + '/100 điểm.\n\nKết quả bài sát hạch đã được tự động lưu trữ về Bảng quản trị của Anh Phạm Đức Hạnh!');
+        // TÌM KIẾM BẢNG VĂN BẢN MỤC 12
+        function timKiemVanBan() {
+            var input = document.getElementById("searchVanBan").value.toUpperCase();
+            var table = document.getElementById("tableVanBan");
+            var tr = table.getElementsByTagName("tr");
+
+            for (var i = 1; i < tr.length; i++) {
+                var show = false;
+                var td = tr[i].getElementsByTagName("td");
+                for (var j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        if ((td[j].textContent || td[j].innerText).toUpperCase().indexOf(input) > -1) {
+                            show = true;
+                            break;
+                        }
+                    }
+                }
+                tr[i].style.display = show ? "" : "none";
+            }
         }
 
         function filterContent() {
             var input = document.getElementById('searchInput').value.toLowerCase();
             if(input.includes('báo cáo') || input.includes('mối nguy')) {
                 document.getElementById('tab-hazard-tab').click();
+            } else if(input.includes('văn bản') || input.includes('pháp lý') || input.includes('biên bản')) {
+                document.getElementById('tab-legal-tab').click();
             } else if(input.includes('sát hạch') || input.includes('thi') || input.includes('trắc nghiệm')) {
                 document.getElementById('tab-quiz-tab').click();
-            } else if(input.includes('cầu trục') || input.includes('bình nén khí') || input.includes('kiểm định') || input.includes('găng')) {
+            } else if(input.includes('cầu trục') || input.includes('kiểm định') || input.includes('găng')) {
                 document.getElementById('tab-ppe-tab').click();
-            } else if(input.includes('khoảng cách') || input.includes('110kv') || input.includes('6.3kv')) {
+            } else if(input.includes('khoảng cách') || input.includes('110kv')) {
                 document.getElementById('tab-specs-tab').click();
-            } else if(input.includes('mưa bão') || input.includes('pctt') || input.includes('xả lũ')) {
-                document.getElementById('tab-storm-tab').click();
-            } else if(input.includes('thẻ an toàn') || input.includes('nhóm 1') || input.includes('nhóm 4')) {
-                document.getElementById('tab-cards-tab').click();
             } else if(input.includes('admin') || input.includes('quản trị') || input.includes('hạnh')) {
                 document.getElementById('tab-admin-tab').click();
             }
